@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/id"
+        android:layout_width="355dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="305dp"
+        android:ems="10"
+        android:hint="Email id"
+        android:inputType="textEmailAddress"
+        android:selectAllOnFocus="false"
+        android:singleLine="true"
+        android:textAlignment="textStart"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="355dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="78dp"
+        android:ems="10"
+        android:hint="Full Name"
+        android:inputType="text"
+        android:singleLine="true"
+        android:textAlignment="textStart"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="355dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="233dp"
+        android:ems="10"
+        android:hint="Number +92"
+        android:inputType="text|phone"
+        android:singleLine="true"
+        android:textAlignment="textStart"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/sign_up"
+        android:textAlignment="center"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:typeface="normal" />
+
+    <EditText
+        android:id="@+id/pass"
+        android:layout_width="355dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="154dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textAlignment="textStart"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/placepick"
+        android:layout_width="97dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="-1dp"
+        android:layout_marginBottom="99dp"
+        android:background="@android:color/holo_blue_light"
+        android:onClick="placepick"
+        android:text="Address"
+        android:textAlignment="center"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/signup"
+        android:layout_width="157dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="94dp"
+        android:layout_marginBottom="50dp"
+        android:background="@android:color/holo_blue_light"
+        android:text="Sign Up"
+        android:textAlignment="center"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/add"
+        android:layout_width="254dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="3dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Your address"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="18sp" />
+
+</RelativeLayout>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "73448849694",
+    "firebase_url": "https://waterics-27931.firebaseio.com",
+    "project_id": "waterics-27931",
+    "storage_bucket": "waterics-27931.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:73448849694:android:a2a0d5e20eb55c98",
+        "android_client_info": {
+          "package_name": "com.example.bilalsalman.waterics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "73448849694-6mgemkgjqml35rlts2ptq2darh904tbr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCufN2cSRFGKoh3bBWJQNR8qrvLLNhQE8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

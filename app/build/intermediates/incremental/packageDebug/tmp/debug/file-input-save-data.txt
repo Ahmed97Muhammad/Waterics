@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Tue Oct 30 23:51:06 PKT 2018
+0.baseType=DIRECTORY
+0.base=/home/hammad/storage/AndroidStudioProjects/Waterics-master/app/build/intermediates/transforms/dexMerger/debug/0
+0.path=classes.dex
+0.set=DEX
+count=1

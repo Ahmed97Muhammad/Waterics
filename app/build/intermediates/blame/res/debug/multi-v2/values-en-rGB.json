@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Bilal Salman\\Desktop\\Waterics\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rGB\\values-en-rGB.xml",
+            "outputFile": "/home/bilalesque/Waterics/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rGB/values-en-rGB.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Bilal Salman\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-places-16.0.0.aar\\9cb7b85057493954aff4392d9e67e8c1\\res\\values-en-rGB\\values.xml",
-                    "from": {
-                        "startLines": "4,5",
-                        "startColumns": "0,0",
-                        "startOffsets": "197,296",
-                        "endColumns": "98,91",
-                        "endOffsets": "295,387"
-                    },
-                    "to": {
-                        "startLines": "37,38",
-                        "startColumns": "4,4",
-                        "startOffsets": "4473,4576",
-                        "endColumns": "102,95",
-                        "endOffsets": "4571,4667"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Bilal Salman\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\7078ca94639a83680e882564388d697e\\res\\values-en-rGB\\values-en-rGB.xml",
+                    "source": "/home/bilalesque/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/de90804e1fb99befa76567e4f08e86a9/res/values-en-rGB/values-en-rGB.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,24 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Bilal Salman\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\769747e9b2c4d4d63bd739a460de6e2a\\res\\values-en-rGB\\values-en-rGB.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "40",
-                        "startColumns": "4",
-                        "startOffsets": "4754",
-                        "endColumns": "100",
-                        "endOffsets": "4850"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Bilal Salman\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e9174e4186ad157e5efec2570186a896\\res\\values-en-rGB\\values.xml",
+                    "source": "/home/bilalesque/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/f146d1a13cde518d56ca15900b7400de/res/values-en-rGB/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -72,7 +38,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Bilal Salman\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.0.1.aar\\056445e9d100374be06d83327fbed9cb\\res\\values-en-rGB\\values.xml",
+                    "source": "/home/bilalesque/.gradle/caches/transforms-1/files-1.1/play-services-places-16.0.0.aar/a831f63676abdf441c7919b2e7eaee0e/res/values-en-rGB/values.xml",
+                    "from": {
+                        "startLines": "4,5",
+                        "startColumns": "0,0",
+                        "startOffsets": "197,296",
+                        "endColumns": "98,91",
+                        "endOffsets": "295,387"
+                    },
+                    "to": {
+                        "startLines": "37,38",
+                        "startColumns": "4,4",
+                        "startOffsets": "4473,4576",
+                        "endColumns": "102,95",
+                        "endOffsets": "4571,4667"
+                    }
+                },
+                {
+                    "source": "/home/bilalesque/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.0.1.aar/c576d975ea97f9526af22d7f3ff01922/res/values-en-rGB/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -86,6 +69,23 @@
                         "startOffsets": "2965",
                         "endColumns": "196",
                         "endOffsets": "3157"
+                    }
+                },
+                {
+                    "source": "/home/bilalesque/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/bbca17f5e96f66c53c989b40f1b81f90/res/values-en-rGB/values-en-rGB.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "40",
+                        "startColumns": "4",
+                        "startOffsets": "4754",
+                        "endColumns": "100",
+                        "endOffsets": "4850"
                     }
                 }
             ]

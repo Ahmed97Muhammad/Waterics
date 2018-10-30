@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "971517504769",
+    "firebase_url": "https://hci-project-220218.firebaseio.com",
+    "project_id": "hci-project-220218",
+    "storage_bucket": "hci-project-220218.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:971517504769:android:a2a0d5e20eb55c98",
+        "android_client_info": {
+          "package_name": "com.example.bilalsalman.waterics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "971517504769-jq94q8024hjrc84hnfl48ea92lho1thi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHkpRgw1RK_TbZO7SAoMgCvt3j8JvYVm0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

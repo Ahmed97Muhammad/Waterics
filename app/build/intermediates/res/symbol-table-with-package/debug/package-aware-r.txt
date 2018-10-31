@@ -975,6 +975,7 @@ id constraintLayout
 id container
 id contentPanel
 id coordinator
+id country_code
 id custom
 id customPanel
 id dark
@@ -1105,6 +1106,7 @@ id snackbar_action
 id snackbar_text
 id snap
 id spacer
+id spinner
 id split_action_bar
 id spread
 id spread_inside

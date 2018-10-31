@@ -8,6 +8,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,8 +21,11 @@ import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.concurrent.TimeUnit;
 
@@ -33,7 +37,7 @@ public class SMSCode extends AppCompatActivity {
     String mVerificationId,address,num,bill,fname;
 
     private FirebaseAuth mAuth;
-
+    private DatabaseReference userdata;
 
 
     //@SuppressLint("MissingSuperCall")
@@ -48,13 +52,19 @@ public class SMSCode extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        userdata = FirebaseDatabase.getInstance().getReference();
+
         Intent intent = getIntent();
         address = intent.getStringExtra("address");
         num = intent.getStringExtra("num");
         bill = intent.getStringExtra("bill");
         fname = intent.getStringExtra("fname");
 
+        num = intent.getStringExtra("num");
+        String c_code = intent.getStringExtra("c_code");
         //Toast.makeText(getApplicationContext(), address + num + bill + fname, Toast.LENGTH_SHORT).show();
+
+        num = c_code + num;
 
         sendVerificationCode(num);
 
@@ -130,6 +140,15 @@ public class SMSCode extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             //verification successful we will start the profile activity
+                                //FirebaseUser user = mAuth.getCurrentUser();
+                                //String id = user.getUid();
+                            String id = userdata.push().getKey();
+                            //Toast.makeText(getApplicationContext(), id, Toast.LENGTH_SHORT).show();
+                            //Log.d("hammad",id);
+                            UserDataForFireBase obj = new UserDataForFireBase(address,num,bill,fname,id);
+                            userdata.child("Users").child(id).setValue(obj);
+
+                            Toast.makeText(getApplicationContext(), "Registration Successful!", Toast.LENGTH_SHORT).show();
 
 
                             //push to firebase

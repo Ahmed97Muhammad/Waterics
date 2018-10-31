@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/hammad/storage/AndroidStudioProjects/Waterics-master/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v22/values-v22.xml",
+            "outputFile": "/home/mahmed/NU FAST/7th semester/Hci/Waterics/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v22/values-v22.xml",
             "map": [
                 {
-                    "source": "/home/hammad/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/2c7e8ae977d268ca5ec04aa5441cf8aa/res/values-v22/values-v22.xml",
+                    "source": "/home/mahmed/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/697075afc9be0cc23e8ce6aa95a1ff0f/res/values-v22/values-v22.xml",
                     "from": {
                         "startLines": "2,3,4,9",
                         "startColumns": "4,4,4,4",

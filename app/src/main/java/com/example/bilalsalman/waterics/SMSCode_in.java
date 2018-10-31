@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,8 +30,8 @@ public class SMSCode_in extends AppCompatActivity {
 
     TextView code;
     Button verify;
-
-    String mVerificationId,num;
+//    ProgressBar progressBar;
+    String mVerificationId,num,c_code;
 
     private FirebaseAuth mAuth;
 
@@ -42,6 +43,7 @@ public class SMSCode_in extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_smscode_in);
+        //progressBar = (ProgressBar)findViewById(R.id.progressBar2) ;
 
         code = (TextView) findViewById(R.id.smscode);
         verify = (Button) findViewById(R.id.verify);
@@ -50,8 +52,10 @@ public class SMSCode_in extends AppCompatActivity {
 
         Intent intent = getIntent();
         num = intent.getStringExtra("num");
-
+        c_code = intent.getStringExtra("c_code");
         //Toast.makeText(getApplicationContext(), address + num + bill + fname, Toast.LENGTH_SHORT).show();
+
+        num = c_code + num;
 
         sendVerificationCode(num);
 
@@ -73,6 +77,8 @@ public class SMSCode_in extends AppCompatActivity {
     }
 
     private void sendVerificationCode(String mobile) {
+        //progressBar.setVisibility(View.VISIBLE);
+
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 mobile,
                 60,

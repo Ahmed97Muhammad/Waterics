@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
     //FirebaseAuth mAuth;
     TextView add,billid,phone,name;
     Button signup;
-
     String  mVerificationId;
+    Spinner spin;
 
     PhoneAuthProvider.ForceResendingToken mResendToken;
 
@@ -54,8 +56,15 @@ public class MainActivity extends AppCompatActivity {
         name = (TextView)findViewById(R.id.name);
         phone = (TextView)findViewById(R.id.phone);
         billid = (TextView)findViewById(R.id.billid);
-
         //Toast.makeText(getApplicationContext(), "Lets Begin!!!", Toast.LENGTH_SHORT).show();
+
+        spin = (Spinner)findViewById(R.id.spinner);
+        String [] country_names = {"Pakistan","India","Afghanistan","Bangladesh"};
+
+
+        spin.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,country_names));
+
+
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,11 +93,24 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
+                String c_code = "";
+                String cc_name = (String) spin.getSelectedItem();
+                if(cc_name == "Pakistan")
+                    c_code = "+92";
+                if(cc_name == "India")
+                    c_code = "+92";
+                if(cc_name == "Afghanistan")
+                    c_code = "+92";
+                if(cc_name == "Bangladesh")
+                    c_code = "+92";
+
+
                 Intent intent = new Intent(MainActivity.this,SMSCode.class);
                 intent.putExtra("num",num);
                 intent.putExtra("bill",bill);
                 intent.putExtra("address",address);
                 intent.putExtra("fname",fname);
+                intent.putExtra("c_code",c_code);
                 startActivity(intent);
             }
         });
@@ -115,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode==PLACE_PICKER_REQUEST){
             if(resultCode==RESULT_OK){
                 Place place = PlacePicker.getPlace(MainActivity.this, data);
+                Log.d("Ahmed",(String) place.getAddress());
                 add.setText(place.getAddress());
             }
         }

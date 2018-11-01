@@ -6,22 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".tabbed_activity$PlaceholderFragment"
-    android:background="@color/blue">
-
-    <TextView
-        android:id="@+id/section_label"
-        android:layout_width="355dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_marginEnd="@dimen/activity_horizontal_margin"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:text="Your Complaint Status"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:textStyle="bold|italic"
-        android:textColor="@color/mycolor"/>
+    >
 
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"></android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

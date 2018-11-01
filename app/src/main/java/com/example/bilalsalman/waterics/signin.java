@@ -65,8 +65,8 @@ public class signin extends AppCompatActivity {
                     c_code = "+92";
                 if(cc_name == "Bangladesh")
                     c_code = "+92";
-
-                Intent intent = new Intent(signin.this,SMSCode_in.class);
+                Intent intent = new Intent(getApplicationContext(),tabbed_activity.class);
+               // Intent intent = new Intent(signin.this,SMSCode_in.class);
                 intent.putExtra("num",num);
                 intent.putExtra("c_code",c_code);
                 startActivity(intent);

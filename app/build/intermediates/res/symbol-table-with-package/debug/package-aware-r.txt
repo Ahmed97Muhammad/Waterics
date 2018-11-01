@@ -1015,6 +1015,7 @@ id icon_group
 id icon_only
 id ifRoom
 id image
+id imageView
 id info
 id invisible
 id italic
@@ -1071,6 +1072,7 @@ id register
 id right
 id right_icon
 id right_side
+id rview
 id s
 id satellite
 id save_image_matrix
@@ -1154,7 +1156,13 @@ id up
 id useLogo
 id verify
 id vertical
+id viewId
 id view_offset_helper
+id viewack
+id viewdt
+id viewres
+id viewsupervisor
+id viewtype
 id visible
 id wide
 id withText
@@ -1204,6 +1212,7 @@ layout activity_signin
 layout activity_smscode
 layout activity_smscode_in
 layout activity_tabbed_activity
+layout cardview
 layout content_smscode
 layout content_smscode_in
 layout design_bottom_navigation_item

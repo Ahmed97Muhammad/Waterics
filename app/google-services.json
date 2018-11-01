@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "1055245071691",
+    "firebase_url": "https://waterics-b3e45.firebaseio.com",
+    "project_id": "waterics-b3e45",
+    "storage_bucket": "waterics-b3e45.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055245071691:android:a2a0d5e20eb55c98",
+        "android_client_info": {
+          "package_name": "com.example.bilalsalman.waterics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055245071691-lsfeamh6djjpolbodmrig3uthed660m1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bilalsalman.waterics",
+            "certificate_hash": "a79e729d3554b42b4ccaf7e7637a62fea383e4a3"
+          }
+        },
+        {
+          "client_id": "1055245071691-pbp4nc2c8sm7bv0pr0ig845t4pm35rhp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bilalsalman.waterics",
+            "certificate_hash": "c38d7b99f59e5dc1bf8f098bbf31b8d588ce7fa5"
+          }
+        },
+        {
+          "client_id": "1055245071691-e17etntb44d4fg9odquodu1un07846hk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBq91KSc-O1z0m3wvd_JYxwTaheE8ejulc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1055245071691-e17etntb44d4fg9odquodu1un07846hk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

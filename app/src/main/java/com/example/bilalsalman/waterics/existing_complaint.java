@@ -29,28 +29,28 @@ public class existing_complaint extends Fragment{
         cards = new ArrayList<cardViewClass>();
 
 //a dummy object just to check later objects from firebase
-        cardViewClass obj = new cardViewClass("id","supervisor","not acknowledge","date","res","watershortage","bg1.jpeg");
+        cardViewClass obj = new cardViewClass("003","supervisor","not acknowledge","01/11/18","03/11/18","chutiyapa","leak");
         cards.add(obj);
 
-        cardViewClass obj1 = new cardViewClass("id","supervisor","not acknowledge","date","res","watershortage","bg1.jpeg");
+        cardViewClass obj1 = new cardViewClass("152152","supervisor","not acknowledge","01/11/18","03/11/18","watershortage","leak");
         cards.add(obj1);
 
-        cardViewClass obj2 = new cardViewClass("id","supervisor","not acknowledge","date","res","watershortage","bg1.jpeg");
+        cardViewClass obj2 = new cardViewClass("2152","Bilal","acknowledge","01/11/18","03/11/18","leak","leak");
         cards.add(obj2);
 
-        cardViewClass obj3 = new cardViewClass("id","supervisor","not acknowledge","date","res","watershortage","bg1.jpeg");
+        cardViewClass obj3 = new cardViewClass("1","Ahmed","not acknowledge","01/11/18","03/11/18","leak","leak");
         cards.add(obj3);
 
-        cardViewClass obj4 = new cardViewClass("id","supervisor","not acknowledge","date","res","watershortage","bg1.jpeg");
+        cardViewClass obj4 = new cardViewClass("02","Bilal Shafique","acknowledge","01/11/18","03/11/18","watershortage","leak");
         cards.add(obj4);
 
-        cardViewClass obj5 = new cardViewClass("id","supervisor","not acknowledge","date","res","watershortage","bg1.jpeg");
+        cardViewClass obj5 = new cardViewClass("id","supervisor","not acknowledge","01/11/18","03/11/18","chutiyappa","leak");
         cards.add(obj5);
 
-        cardViewClass obj6 = new cardViewClass("id","supervisor","not acknowledge","date","res","watershortage","bg1.jpeg");
+        cardViewClass obj6 = new cardViewClass("id","supervisor","not acknowledge","date","res","watershortage","leak");
         cards.add(obj6);
 
-        cardViewClass obj7 = new cardViewClass("id","supervisor","not acknowledge","date","res","watershortage","bg1.jpeg");
+        cardViewClass obj7 = new cardViewClass("id","supervisor","not acknowledge","date","res","watershortage","leak");
         cards.add(obj7);
 
         rview = (RecyclerView) rootView.findViewById(R.id.rview);

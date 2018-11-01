@@ -16,7 +16,9 @@
         android:text="VERIFY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/buttonbg"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"/>
 
     <EditText
         android:id="@+id/smscode"

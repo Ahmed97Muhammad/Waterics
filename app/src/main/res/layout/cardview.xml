@@ -1,62 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="15dp"
         tools:layout_editor_absoluteX="109dp"
         tools:layout_editor_absoluteY="0dp">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_width="397dp"
+            android:layout_height="232dp"
             android:padding="8dp">
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="120dp"
                 android:layout_height="150dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginBottom="29dp"
                 android:padding="5dp"
-                android:src="@drawable/leak" />
+                android:src="@drawable/waterdrop" />
 
             <TextView
                 android:id="@+id/viewId"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="10dp"
-                android:layout_toRightOf="@id/viewdt"
+                android:layout_height="37dp"
+                android:layout_above="@+id/imageView"
+                android:layout_alignStart="@+id/imageView"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="3dp"
                 android:text="Complaint Id"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-                android:textColor="#000000" />
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                android:textColor="#000000"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/viewsupervisor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/viewId"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="15dp"
-                android:layout_toRightOf="@id/viewtype"
+                android:layout_below="@+id/viewtype"
+                android:layout_marginStart="11dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="6dp"
+                android:layout_toEndOf="@+id/imageView"
+                android:layout_toRightOf="@+id/imageView"
                 android:text="Supervisor"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
             <TextView
                 android:id="@+id/viewack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/viewtype"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="10dp"
+                android:layout_below="@+id/viewsupervisor"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="6dp"
                 android:layout_marginBottom="5dp"
                 android:layout_toRightOf="@id/imageView"
                 android:background="@color/colorPrimary"
-                android:paddingLeft="15dp"
+                android:paddingLeft="2dp"
                 android:paddingRight="15dp"
                 android:text="Acknowledged"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"
@@ -66,39 +77,37 @@
                 android:id="@+id/viewdt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="30dp"
                 android:layout_toRightOf="@id/imageView"
                 android:text="01/01/2018"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textStyle="bold" />
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
             <TextView
                 android:id="@+id/viewres"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/viewack"
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="6dp"
                 android:layout_toRightOf="@id/imageView"
                 android:text="Resolving time"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textStyle="bold" />
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
 
             <TextView
                 android:id="@+id/viewtype"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/viewdt"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="6dp"
                 android:layout_toRightOf="@id/imageView"
                 android:text="Pipe burst"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textStyle="bold" />
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
 
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
 
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

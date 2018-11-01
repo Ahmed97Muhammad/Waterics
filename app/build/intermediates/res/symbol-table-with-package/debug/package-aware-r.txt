@@ -916,6 +916,8 @@ drawable powered_by_google_dark
 drawable powered_by_google_light
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable w
+drawable waterdrop
 id ALT
 id CTRL
 id FUNCTION
@@ -1017,6 +1019,7 @@ id icon_only
 id ifRoom
 id image
 id imageView
+id imageView2
 id info
 id invisible
 id italic

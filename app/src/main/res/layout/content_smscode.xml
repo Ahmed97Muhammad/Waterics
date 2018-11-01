@@ -10,10 +10,12 @@
 
     <Button
         android:id="@+id/verify"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="125dp"
+        android:layout_height="56dp"
         android:layout_marginBottom="192dp"
+        android:background="@drawable/buttonbg"
         android:text="VERIFY"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

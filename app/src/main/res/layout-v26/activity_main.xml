@@ -20,7 +20,7 @@
         android:background="@drawable/buttonbg"
         android:text="Sign Up"
         android:textAlignment="center"
-        android:textColor="@color/mycolor"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="22sp"
         android:textStyle="bold" />
 
@@ -116,7 +116,7 @@
         android:onClick="placepick"
         android:text="Address"
         android:textAlignment="center"
-        android:textColor="@color/mycolor"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="18sp"
         android:textStyle="bold" />
 

@@ -12,16 +12,16 @@
         style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
         android:layout_width="128dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView2"
+        android:layout_below="@+id/phone_signin"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginStart="135dp"
+        android:layout_marginTop="6dp"
         android:layout_marginEnd="135dp"
         android:layout_marginRight="135dp"
-        android:layout_marginBottom="70dp"
         android:background="@drawable/buttonbg"
         android:text="Sign in"
-        android:textColor="@color/mycolor"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -31,7 +31,8 @@
         android:layout_height="56dp"
         android:layout_below="@+id/s"
         android:layout_alignEnd="@+id/register"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="0dp"
         android:ems="10"
         android:hint="Phone Number"
         android:inputType="phone"
@@ -45,7 +46,7 @@
         android:layout_height="103dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="161dp"
         android:text="Welcome! You're just one step away from solving your water problem."
         android:textAlignment="center"
         android:textAllCaps="false"
@@ -59,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Sign in"
@@ -93,9 +94,9 @@
         android:layout_marginRight="27dp"
         android:layout_marginBottom="25dp"
         android:background="@drawable/buttonbg"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:onClick="registernow"
         android:text="Register Now!"
-        android:textColor="@color/mycolor"
         android:textSize="14sp"
         android:textStyle="bold" />
 
@@ -106,7 +107,16 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="209dp"
+        android:layout_marginTop="352dp"
         android:textColor="@color/mycolor" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="251dp"
+        android:layout_height="170dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/w" />
 
 </RelativeLayout>

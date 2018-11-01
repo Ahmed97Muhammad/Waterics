@@ -64,7 +64,7 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.recycl
             super(itemView);
 
             imageview = itemView.findViewById(R.id.imageView);
-            imageview.setImageResource(R.drawable.leak);
+            imageview.setImageResource(R.drawable.waterdrop);
             viewId = itemView.findViewById(R.id.viewId);
             viewsupervisor = itemView.findViewById(R.id.viewsupervisor);
             viewack = itemView.findViewById(R.id.viewack);

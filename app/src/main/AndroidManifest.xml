@@ -51,6 +51,9 @@
             android:label="@string/title_activity_tabbed_activity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".AdminComplaintCenter"
+            android:label="@string/admin" />
+        <activity
             android:name=".SMSCode"
             android:label="@string/title_activity_smscode"
             android:parentActivityName=".MainActivity">

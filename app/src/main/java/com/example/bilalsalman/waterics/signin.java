@@ -84,7 +84,8 @@ public class signin extends AppCompatActivity {
 
     public void registernow(View view)
     {
-        Intent intent = new Intent(signin.this, MainActivity.class);
+     //   Intent intent = new Intent(signin.this, MainActivity.class);
+        Intent intent = new Intent(signin.this, AdminComplaintCenter.class);
         startActivity(intent);
     }
 

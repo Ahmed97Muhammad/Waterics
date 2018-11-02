@@ -924,6 +924,8 @@ id FUNCTION
 id META
 id SHIFT
 id SYM
+id ack
+id acknowledged
 id action0
 id action_bar
 id action_bar_activity_content
@@ -964,12 +966,14 @@ id bottom
 id button
 id buttonPanel
 id cancel_action
+id cdate
 id center
 id center_horizontal
 id center_vertical
 id chains
 id checkbox
 id chronometer
+id cid
 id clip_horizontal
 id clip_vertical
 id code_title
@@ -979,6 +983,7 @@ id container
 id contentPanel
 id coordinator
 id country_code
+id ctype
 id custom
 id customPanel
 id dark
@@ -998,7 +1003,9 @@ id end
 id end_padder
 id enterAlways
 id enterAlwaysCollapsed
+id eta
 id exitUntilCollapsed
+id expand
 id expand_activities_button
 id expanded_menu
 id fab
@@ -1031,6 +1038,7 @@ id line1
 id line3
 id listMode
 id list_item
+id llExpandArea
 id main_content
 id map
 id masked
@@ -1067,11 +1075,13 @@ id place_autocomplete_separator
 id placepick
 id progress_circular
 id progress_horizontal
+id rLayout
 id radio
 id radioButton
 id radioButton2
 id radioButton3
 id radioButton4
+id recyclerView
 id register
 id right
 id right_icon
@@ -1124,6 +1134,8 @@ id start
 id status_bar_latest_event_content
 id submenuarrow
 id submit_area
+id supername
+id superphone
 id tabItem
 id tabItem2
 id tabMode
@@ -1210,12 +1222,14 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_admin_complaint_center
 layout activity_main
 layout activity_maps
 layout activity_signin
 layout activity_smscode
 layout activity_smscode_in
 layout activity_tabbed_activity
+layout admin_cardview
 layout cardview
 layout content_smscode
 layout content_smscode_in
@@ -1294,6 +1308,7 @@ string abc_toolbar_collapse_description
 string action_settings
 string action_sign_in
 string action_sign_in_short
+string admin
 string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior

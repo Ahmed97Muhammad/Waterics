@@ -77,6 +77,9 @@
             android:label="@string/title_activity_tabbed_activity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name="com.example.bilalsalman.waterics.AdminComplaintCenter"
+            android:label="@string/admin" />
+        <activity
             android:name="com.example.bilalsalman.waterics.SMSCode"
             android:label="@string/title_activity_smscode"
             android:parentActivityName="com.example.bilalsalman.waterics.MainActivity" >

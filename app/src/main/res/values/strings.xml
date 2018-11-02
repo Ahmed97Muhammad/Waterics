@@ -23,4 +23,7 @@
         completions."
     </string>
     <string name="title_activity_smscode_in">SMSCode_in</string>
+    <string name="admin">ADMIN</string>
+
+
 </resources>

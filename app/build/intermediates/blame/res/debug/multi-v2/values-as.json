@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Bilal Salman\\Desktop\\Waterics\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-as\\values-as.xml",
+            "outputFile": "/home/mahmed/NU FAST/7th semester/Hci/Waterics/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-as/values-as.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Bilal Salman\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e9174e4186ad157e5efec2570186a896\\res\\values-as\\values.xml",
+                    "source": "/home/mahmed/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/c499b2cbb43e16b54854cf57ca1e7c37/res/values-as/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Bilal Salman\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.0.1.aar\\056445e9d100374be06d83327fbed9cb\\res\\values-as\\values.xml",
+                    "source": "/home/mahmed/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.0.1.aar/6760d167a47b7ee427e8f2009857b475/res/values-as/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

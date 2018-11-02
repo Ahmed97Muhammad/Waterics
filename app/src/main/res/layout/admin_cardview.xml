@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+        <RelativeLayout
+            android:id="@+id/rLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/cdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="8dp"
+                android:text="Date" />
+
+
+            <TextView
+                android:id="@+id/cid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cdate"
+                android:layout_marginTop="5dp"
+                android:text="ID" />
+
+            <TextView
+                android:id="@+id/add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cid"
+                android:layout_marginTop="9dp"
+                android:text="Address" />
+
+            <TextView
+                android:id="@+id/acknowledged"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cdate"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:text="NOT ACKNOWLEDGED"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ctype"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/add"
+                android:layout_marginTop="5dp"
+                android:text="Type" />
+
+            <RelativeLayout
+                android:id="@+id/llExpandArea"
+                android:visibility="gone"
+                android:layout_width="355dp"
+                android:layout_height="160dp"
+                android:layout_below="@+id/ctype"
+                android:layout_marginTop="5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="0dp"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/eta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/superphone"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="5dp"
+                    android:text="Completion Estimate" />
+
+                <TextView
+                    android:id="@+id/superphone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/supername"
+                    android:layout_marginTop="5dp"
+                    android:text="Supervisor Phone" />
+
+                <TextView
+                    android:id="@+id/supername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="Supervisor" />
+
+                <Switch
+                    android:id="@+id/ack"
+                    android:layout_width="134dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="81dp"
+                    android:layout_marginLeft="81dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_toEndOf="@+id/superphone"
+                    android:layout_toRightOf="@+id/superphone"
+                    android:text="Acknowledge" />
+            </RelativeLayout>
+
+            <ImageButton
+                android:id="@+id/expand"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
+                app:srcCompat="@android:drawable/arrow_down_float" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

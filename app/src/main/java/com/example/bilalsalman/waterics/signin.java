@@ -3,6 +3,7 @@ package com.example.bilalsalman.waterics;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
@@ -13,13 +14,17 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.TaskExecutors;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class signin extends AppCompatActivity {
-    //private DatabaseReference userdata;
+    private DatabaseReference userdata;
 
     TextView phone;
     Spinner spin;
@@ -34,7 +39,33 @@ public class signin extends AppCompatActivity {
         phone = (TextView)findViewById(R.id.phone_signin);
         spin = (Spinner)findViewById(R.id.country_code);
 
-        //userdata = FirebaseDatabase.getInstance().getReference("Users");
+        userdata = FirebaseDatabase.getInstance().getReference();
+
+
+        final ArrayList<UserDataForFireBase> contacts = new ArrayList<>();
+
+
+        userdata.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+  //              Log.d("Fuckme","hello");
+
+                DataSnapshot contactSnapshot = dataSnapshot.child("Users");
+                Iterable<DataSnapshot> contactChildren = contactSnapshot.getChildren();
+
+                for (DataSnapshot contact : contactChildren) {
+                    UserDataForFireBase c = contact.getValue(UserDataForFireBase.class);
+//                    Log.d("Fuckme",c.getNum());
+                    contacts.add(c);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
 
         String [] country_names = {"Pakistan","India","Afghanistan","Bangladesh"};
 
@@ -46,7 +77,6 @@ public class signin extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
                 num = phone.getText().toString().trim();
 
                 if (num.equals("")) {
@@ -55,8 +85,27 @@ public class signin extends AppCompatActivity {
                     return;
                 }
 
+                boolean register_user = false;
+
+
+                for(int i=0;i<contacts.size();i++)
+                {
+                    if(contacts.get(i).getNum().equals("+92" + num))
+                    {
+                       // Log.d("Fuck",num);
+                        register_user = true;
+                    }
+                }
+
+                if(!register_user)
+                {
+                    Toast.makeText(getApplicationContext(), "Phone Number Not Registered!! Please Register first. Click 'Register Now' to register yourself", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 String c_code = "";
                 String cc_name = (String) spin.getSelectedItem();
+
                 if(cc_name == "Pakistan")
                     c_code = "+92";
                 if(cc_name == "India")
@@ -65,8 +114,10 @@ public class signin extends AppCompatActivity {
                     c_code = "+92";
                 if(cc_name == "Bangladesh")
                     c_code = "+92";
-                Intent intent = new Intent(getApplicationContext(),tabbed_activity.class);
-               // Intent intent = new Intent(signin.this,SMSCode_in.class);
+
+                //Intent intent = new Intent(getApplicationContext(),tabbed_activity.class);
+
+                Intent intent = new Intent(signin.this,SMSCode_in.class);
                 intent.putExtra("num",num);
                 intent.putExtra("c_code",c_code);
                 startActivity(intent);
@@ -84,12 +135,12 @@ public class signin extends AppCompatActivity {
 
     public void registernow(View view)
     {
-     //   Intent intent = new Intent(signin.this, MainActivity.class);
-        Intent intent = new Intent(signin.this, AdminComplaintCenter.class);
+        Intent intent = new Intent(signin.this, MainActivity.class);
+     //   Intent intent = new Intent(signin.this, AdminComplaintCenter.class);
         startActivity(intent);
     }
 
-    /*@Override
+  /*  @Override
     protected void onStart() {
         super.onStart();
 
@@ -102,7 +153,7 @@ public class signin extends AppCompatActivity {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
-    }*/
-
+    }
+*/
 }
 

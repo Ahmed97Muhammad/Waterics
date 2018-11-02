@@ -3,6 +3,8 @@ package com.example.bilalsalman.waterics;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,11 +30,18 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
+    private DatabaseReference userdata;
     int PLACE_PICKER_REQUEST = 1;
     //FirebaseAuth mAuth;
     TextView add,billid,phone,name;
@@ -49,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_main);
+        userdata = FirebaseDatabase.getInstance().getReference();
 
 
         signup = (Button)findViewById(R.id.signup);
@@ -66,32 +76,95 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        signup.setOnClickListener(new View.OnClickListener() {
+        final ArrayList<UserDataForFireBase> contacts = new ArrayList<>();
+
+
+        userdata.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
-                //Toast.makeText(getApplicationContext(), "Clicked Signup", Toast.LENGTH_SHORT).show();
-                String bill = billid.getText().toString().trim();
-                String num = phone.getText().toString().trim();
-                String address = add.getText().toString().trim();
-                String fname = name.getText().toString().trim();
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
-                if (num.equals("")) {
-                    phone.setError("Enter phone number in format: +923xxxxxxxxx!");
-                    phone.requestFocus();
-                    return;
-                }
 
-                if (bill.equals("")) {
-                    billid.setError("Bill ID is required!");
-                    billid.requestFocus();
-                    return;
-                }
+                DataSnapshot contactSnapshot = dataSnapshot.child("Users");
+                Iterable<DataSnapshot> contactChildren = contactSnapshot.getChildren();
 
-                if (address.equals("")) {
-                    add.setError("Address is required!");
-                    add.requestFocus();
-                    return;
+                for (DataSnapshot contact : contactChildren) {
+                    UserDataForFireBase c = contact.getValue(UserDataForFireBase.class);
+                    Log.d("Fuckmebitch",c.getNum());
+                    contacts.add(c);
                 }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+        signup.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View view) {
+                  //Toast.makeText(getApplicationContext(), "Clicked Signup", Toast.LENGTH_SHORT).show();
+                  String bill = billid.getText().toString().trim();
+                  String num = phone.getText().toString().trim();
+                  String address = add.getText().toString().trim();
+                  String fname = name.getText().toString().trim();
+
+                  if (num.equals("")) {
+                      phone.setError("Enter phone number in format: +923xxxxxxxxx!");
+                      phone.requestFocus();
+                      return;
+                  }
+
+                  if (bill.equals("")) {
+                      billid.setError("Bill ID is required!");
+                      billid.requestFocus();
+                      return;
+                  }
+
+                  if (address.equals("")) {
+                      add.setError("Address is required!");
+                      add.requestFocus();
+                      return;
+                  }
+
+
+                  boolean register_user = true;
+                  for (int i = 0; i < contacts.size(); i++) {
+                      if (contacts.get(i).getNum().equals("+92" + num)) {
+                //          Log.d("Fuck",contacts.get(i).getNum());
+                 //         Log.d("Fuckutoo","+92"+num);
+                          register_user = false;
+                      }
+                  }
+
+                  if (!register_user) {
+
+  /*                    Snackbar snackbar = Snackbar.make(findViewById(R.id.parent), "You are already Registered", Snackbar.LENGTH_LONG);
+                      snackbar.setAction("Dismiss", new View.OnClickListener() {
+                          @Override
+                          public void onClick(View v) {
+
+                          }
+                      });
+                      snackbar.setAction("SignIn Page", new View.OnClickListener() {
+                          @Override
+                          public void onClick(View v) {
+                              Intent intent = new Intent(MainActivity.this,signin.class);
+                              startActivity(intent);
+
+                          }
+                      });
+                      snackbar.show();
+*/
+
+                      Toast.makeText(getApplicationContext(), "You are already register. Please go back to the signin page to login.", Toast.LENGTH_SHORT).show();
+                      return;
+                  }
+
+
+
 
                 String c_code = "";
                 String cc_name = (String) spin.getSelectedItem();

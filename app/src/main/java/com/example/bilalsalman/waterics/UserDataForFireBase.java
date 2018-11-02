@@ -11,6 +11,10 @@ public class UserDataForFireBase {
         this.fname = fname;
         this.id = id;
     }
+    public UserDataForFireBase()
+    {
+
+    }
 
     public String getAddress() {
         return address;

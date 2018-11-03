@@ -66,7 +66,7 @@
             <RelativeLayout
                 android:id="@+id/llExpandArea"
                 android:visibility="gone"
-                android:layout_width="355dp"
+                android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:layout_below="@+id/ctype"
                 android:layout_marginTop="5dp"
@@ -78,25 +78,17 @@
                     android:id="@+id/eta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/superphone"
+                    android:layout_below="@+id/msg"
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="5dp"
                     android:text="Completion Estimate" />
 
                 <TextView
-                    android:id="@+id/superphone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/supername"
-                    android:layout_marginTop="5dp"
-                    android:text="Supervisor Phone" />
-
-                <TextView
-                    android:id="@+id/supername"
+                    android:id="@+id/msg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:text="Supervisor" />
+                    android:text="Message" />
 
                 <Switch
                     android:id="@+id/ack"

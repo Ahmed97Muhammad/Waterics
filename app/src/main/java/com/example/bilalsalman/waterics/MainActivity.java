@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
                 for (DataSnapshot contact : contactChildren) {
                     UserDataForFireBase c = contact.getValue(UserDataForFireBase.class);
-                    Log.d("Fuckmebitch",c.getNum());
+                   // Log.d("Fuckmebitch",c.getNum());
                     contacts.add(c);
                 }
             }

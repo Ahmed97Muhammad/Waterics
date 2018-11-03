@@ -140,9 +140,9 @@ public class SMSCode extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             //verification successful we will start the profile activity
-                                //FirebaseUser user = mAuth.getCurrentUser();
-                                //String id = user.getUid();
-                            String id = userdata.push().getKey();
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            String id = user.getUid();
+                            userdata.push().getKey();
                             //Toast.makeText(getApplicationContext(), id, Toast.LENGTH_SHORT).show();
                             //Log.d("hammad",id);
                             UserDataForFireBase obj = new UserDataForFireBase(address,num,bill,fname,id);

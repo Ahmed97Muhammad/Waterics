@@ -8,21 +8,18 @@ public class admin_complaintcard {
     boolean ack;
     String type;
 
-
-    String supername;
-    String superphone;
+    String msg;
     String eta;
 
-    public admin_complaintcard(String s, String t, String u, String v, String w, String x, String y)
+    public admin_complaintcard(String date, String complaintID, String add, String type, String msg, String eta)
     {
-        date = s;
-        complaintID=t;
-        ack=false;
-        add = u;
-        type = v;
-        supername = w;
-        superphone = x;
-        eta = y;
+        this.date = date;
+        this.complaintID=complaintID;
+        this.ack=false;
+        this.add = add;
+        this.type = type;
+        this.msg = msg;
+        this.eta = eta;
     }
 
     public String getComplaintID()
@@ -62,22 +59,6 @@ public class admin_complaintcard {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public String getSupername() {
-        return supername;
-    }
-
-    public void setSupername(String supername) {
-        this.supername = supername;
-    }
-
-    public String getSuperphone() {
-        return superphone;
-    }
-
-    public void setSuperphone(String superphone) {
-        this.superphone = superphone;
     }
 
     public String getEta() {

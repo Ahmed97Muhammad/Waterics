@@ -1,13 +1,11 @@
 package com.example.bilalsalman.waterics;
 
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
@@ -43,8 +41,7 @@ public class admin_complaintcardAdapter extends RecyclerView.Adapter<admin_compl
         holder.cdate.setText(complaint.date);
         holder.add.setText(complaint.add);
         holder.ctype.setText(complaint.type);
-        holder.sname.setText(complaint.supername);
-        holder.sphone.setText(complaint.superphone);
+        holder.msg.setText(complaint.msg);
         holder.eta.setText(complaint.eta);
 
         if(complaint.isAck())
@@ -99,7 +96,7 @@ public class admin_complaintcardAdapter extends RecyclerView.Adapter<admin_compl
 
     public class admin_complaintcardViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView complaintID,cdate,add,ackstatus,ctype,sname,sphone,eta;
+        public TextView complaintID,cdate,add,ackstatus,ctype,msg,eta;
         public Switch acknowledge;
         ImageButton down;
 
@@ -116,8 +113,7 @@ public class admin_complaintcardAdapter extends RecyclerView.Adapter<admin_compl
             add = itemView.findViewById(R.id.add);
             ackstatus = itemView.findViewById(R.id.acknowledged);
             ctype = itemView.findViewById(R.id.ctype);
-            sname = itemView.findViewById(R.id.supername);
-            sphone = itemView.findViewById(R.id.superphone);
+            msg = itemView.findViewById(R.id.msg);
             eta = itemView.findViewById(R.id.eta);
 
             rLayout = itemView.findViewById(R.id.rLayout);

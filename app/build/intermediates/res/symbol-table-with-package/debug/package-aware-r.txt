@@ -963,7 +963,6 @@ id beginning
 id billid
 id blocking
 id bottom
-id button
 id buttonPanel
 id cancel_action
 id cdate
@@ -978,6 +977,7 @@ id clip_horizontal
 id clip_vertical
 id code_title
 id collapseActionView
+id complain_submit
 id constraintLayout
 id container
 id contentPanel
@@ -1046,6 +1046,7 @@ id media_actions
 id message
 id middle
 id mini
+id msg
 id multiply
 id name
 id navigation_header_container
@@ -1134,12 +1135,12 @@ id start
 id status_bar_latest_event_content
 id submenuarrow
 id submit_area
-id supername
 id superphone
 id tabItem
 id tabItem2
 id tabMode
 id tabs
+id tabsadmin
 id tag_transition_group
 id terrain
 id text
@@ -1223,6 +1224,7 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_admin_complaint_center
+layout activity_admin_tabbed
 layout activity_main
 layout activity_maps
 layout activity_signin
@@ -1248,6 +1250,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout existing_complaint
+layout fragment_maps
 layout new_complaint
 layout notification_action
 layout notification_action_tombstone

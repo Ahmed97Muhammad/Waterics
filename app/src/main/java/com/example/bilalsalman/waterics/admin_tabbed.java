@@ -42,8 +42,8 @@ public class admin_tabbed extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_tabbed);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
+        //setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -66,7 +66,7 @@ public class admin_tabbed extends AppCompatActivity {
 
 
         //yha per hammad file bheje ga
-        getMenuInflater().inflate(R.menu.menu_tabbed_activity, menu);
+        getMenuInflater().inflate(R.menu.menu_admin_tabbed, menu);
 
 
         return true;

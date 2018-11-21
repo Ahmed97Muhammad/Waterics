@@ -80,7 +80,7 @@ public class signin extends AppCompatActivity {
                 num = phone.getText().toString().trim();
 
                 if (num.equals("")) {
-                    phone.setError("Enter phone number in format: +923xxxxxxxxx!");
+                    phone.setError("Enter phone number in format: 0321xxxxxx!");
                     phone.requestFocus();
                     return;
                 }
@@ -136,7 +136,7 @@ public class signin extends AppCompatActivity {
     public void registernow(View view)
     {
         Intent intent = new Intent(signin.this, MainActivity.class);
-     //   Intent intent = new Intent(signin.this, AdminComplaintCenter.class);
+       //Intent intent = new Intent(signin.this, admin_tabbed.class);
         startActivity(intent);
     }
 

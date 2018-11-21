@@ -31,7 +31,7 @@ public class SMSCode_in extends AppCompatActivity {
     TextView code;
     Button verify;
 //    ProgressBar progressBar;
-    String mVerificationId,num,c_code;
+    String mVerificationId,num,c_code,admin;
 
     private FirebaseAuth mAuth;
 
@@ -54,7 +54,7 @@ public class SMSCode_in extends AppCompatActivity {
         num = intent.getStringExtra("num");
         c_code = intent.getStringExtra("c_code");
         //Toast.makeText(getApplicationContext(), address + num + bill + fname, Toast.LENGTH_SHORT).show();
-
+        admin = num;
         num = c_code + num;
 
         sendVerificationCode(num);
@@ -136,12 +136,26 @@ public class SMSCode_in extends AppCompatActivity {
 
 
                             //push to firebase
+                        if(admin.equals("03218710363"))
+                        {
+                            //Log in admin
+
+                            Toast.makeText(getApplicationContext(), "Admin Logged in.", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(SMSCode_in.this, admin_tabbed.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
 
 
+                        }
 
+                        //else
+                        else
+                        {
                             Intent intent = new Intent(SMSCode_in.this, tabbed_activity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
+
+                        }
 
                         } else {
 

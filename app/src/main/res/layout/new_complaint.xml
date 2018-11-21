@@ -22,54 +22,6 @@
         android:textStyle="bold|italic"
         android:textColor="@color/mycolor" />
 
-    <RadioButton
-        android:id="@+id/radioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView4"
-        android:layout_alignStart="@+id/section_label"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="14dp"
-        android:text="pipe burst"
-        android:textSize="22sp"
-        android:textColor="@color/mycolor"/>
-
-    <RadioButton
-        android:id="@+id/radioButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/radioButton"
-        android:layout_alignStart="@+id/section_label"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="17dp"
-        android:text="Water shortage"
-        android:textSize="22sp"
-        android:textColor="@color/mycolor"/>
-
-    <RadioButton
-        android:id="@+id/radioButton3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/radioButton2"
-        android:layout_alignStart="@+id/section_label"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="17dp"
-        android:text="Leakage"
-        android:textColor="@color/mycolor"
-        android:textSize="22sp" />
-
-    <RadioButton
-        android:id="@+id/radioButton4"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_below="@+id/radioButton3"
-        android:layout_alignStart="@+id/section_label"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="15dp"
-        android:text="type4"
-        android:textColor="@color/mycolor"
-        android:textSize="22sp" />
-
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
@@ -93,10 +45,10 @@
         android:layout_alignStart="@+id/section_label"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginRight="41dp"
         android:ems="10"
         android:hint="Please be specific"
         android:inputType="textPersonName"
@@ -107,10 +59,10 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="29dp"
-        android:layout_below="@+id/radioButton4"
+        android:layout_below="@+id/checkBox4"
         android:layout_alignStart="@+id/section_label"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="25dp"
         android:text="Special Instructions"
         android:textColor="@color/mycolor"
         android:textSize="18sp" />
@@ -135,5 +87,53 @@
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="22sp"
         android:textStyle="bold" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_alignEnd="@+id/button"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="105dp"
+        android:text="Pipe Burst"
+        android:textColor="@color/mycolor"
+        android:textSize="22sp" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/checkBox"
+        android:layout_alignEnd="@+id/button"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="53dp"
+        android:text="Water Shortage"
+        android:textColor="@color/mycolor"
+        android:textSize="22sp" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/checkBox2"
+        android:layout_alignEnd="@+id/button"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="124dp"
+        android:text="Leakage"
+        android:textColor="@color/mycolor"
+        android:textSize="22sp" />
+
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/checkBox3"
+        android:layout_alignEnd="@+id/button"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="53dp"
+        android:text="Acidity in Water"
+        android:textColor="@color/mycolor"
+        android:textSize="22sp" />
 
 </RelativeLayout>

@@ -11,6 +11,9 @@ import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.List;
 
 public class admin_complaintcardAdapter extends RecyclerView.Adapter<admin_complaintcardAdapter .admin_complaintcardViewHolder>{
@@ -55,10 +58,18 @@ public class admin_complaintcardAdapter extends RecyclerView.Adapter<admin_compl
             public void onClick(View view) {
                 complaint.acknowledge();
                 holder.acknowledge.setChecked(complaint.isAck());
-                if(complaint.isAck())
+                if(complaint.isAck()){
                     holder.ackstatus.setText("ACKNOWLEDGED");
-                else
+
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Complaints").child(complaint.complaintID);
+                    ref.child("ack").setValue(true);
+
+                }
+                else{
                     holder.ackstatus.setText("NOT ACKNOWLEDGED");
+                    //DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Complaints").child(complaint.getId());
+                    //ref.child("ack").setValue(true);
+                }
             }
         });
 

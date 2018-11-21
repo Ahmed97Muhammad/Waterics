@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                   String fname = name.getText().toString().trim();
 
                   if (num.equals("")) {
-                      phone.setError("Enter phone number in format: +923xxxxxxxxx!");
+                      phone.setError("Enter phone number in format: 032xxxxxxx!");
                       phone.requestFocus();
                       return;
                   }

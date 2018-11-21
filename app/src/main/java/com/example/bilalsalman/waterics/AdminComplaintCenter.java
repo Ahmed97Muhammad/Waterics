@@ -11,6 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,8 +25,10 @@ public class AdminComplaintCenter extends Fragment {
 
     RecyclerView recyclerView;
     admin_complaintcardAdapter adapter;
-    List<admin_complaintcard> clist;
 
+    private FirebaseAuth mAuth;
+    private DatabaseReference userdata;
+    private List<admin_complaintcard> clist;
     private FragmentActivity mFrgAct;
     private Intent mIntent;
 
@@ -43,6 +52,11 @@ public class AdminComplaintCenter extends Fragment {
 
         //setting adapter to recyclerview
         recyclerView.setAdapter(adapter);*/
+
+        userdata = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
+
+        clist  = new ArrayList<>();
 
 
         return root;
@@ -75,16 +89,57 @@ public class AdminComplaintCenter extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity().getApplicationContext()));
 
-        clist = new ArrayList<>();
+//        clist.add(new admin_complaintcard());
 
-        /*clist.add(new admin_complaintcard("8/8/18","A1","Johar","No water","Abdul Saeed","090078601","Never"));
-        clist.add(new admin_complaintcard("8/8/18","A2","Johar","No water","Abdul Saeed","090078601","Never"));
-        clist.add(new admin_complaintcard("8/8/18","A3","Johar","No water","Abdul Saeed","090078601","Never"));*/
-
+      /*  clist.add(new admin_complaintcard("8/8/18","Johar","No water","Abdul Saeed","090078601","Never"));
+        clist.add(new admin_complaintcard("8/8/18","Johar","No water","Abdul Saeed","090078601","Never"));
+        clist.add(new admin_complaintcard("8/8/18","Johar","No water","Abdul Saeed","090078601","Never"));
+*/
         //creating recyclerview adapter
-        admin_complaintcardAdapter adapter = new admin_complaintcardAdapter(this.getActivity().getApplicationContext(), clist);
 
+        final List<admin_complaintcard> cl = new ArrayList<>();
+
+
+        userdata.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                DataSnapshot complaintSnapshot = dataSnapshot.child("Complaints");
+                Iterable<DataSnapshot> complaintChildren = complaintSnapshot.getChildren();
+
+                for (DataSnapshot complaint : complaintChildren) {
+
+                    admin_complaintcard c = complaint.getValue(admin_complaintcard.class);
+                    //Log.d("hello123",c.getAdd());
+
+                    cl.add(c);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                // ...
+            }
+        });
+
+
+        //cl.add(new admin_complaintcard("8/8/18","Johar","No water","Abdul Saeed","090078601","Never"));
+        //cl.remove(cl.size()-1);
+
+
+        admin_complaintcardAdapter adapter = new admin_complaintcardAdapter(this.getActivity().getApplicationContext(), cl);
+        adapter.notifyDataSetChanged();
         //setting adapter to recyclerview
         recyclerView.setAdapter(adapter);
+    }
+
+    private List<admin_complaintcard> getdata() {
+
+
+
+        return null;
+
+
     }
 }

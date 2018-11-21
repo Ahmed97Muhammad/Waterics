@@ -172,12 +172,12 @@ ADDED from /home/mahmed/NU FAST/7th semester/Hci/Waterics/app/src/main/AndroidMa
 		ADDED from /home/mahmed/NU FAST/7th semester/Hci/Waterics/app/src/main/AndroidManifest.xml:52:13-56
 	android:name
 		ADDED from /home/mahmed/NU FAST/7th semester/Hci/Waterics/app/src/main/AndroidManifest.xml:50:13-44
-activity#com.example.bilalsalman.waterics.AdminComplaintCenter
+activity#com.example.bilalsalman.waterics.admin_tabbed
 ADDED from /home/mahmed/NU FAST/7th semester/Hci/Waterics/app/src/main/AndroidManifest.xml:53:9-55:45
 	android:label
 		ADDED from /home/mahmed/NU FAST/7th semester/Hci/Waterics/app/src/main/AndroidManifest.xml:55:13-42
 	android:name
-		ADDED from /home/mahmed/NU FAST/7th semester/Hci/Waterics/app/src/main/AndroidManifest.xml:54:13-49
+		ADDED from /home/mahmed/NU FAST/7th semester/Hci/Waterics/app/src/main/AndroidManifest.xml:54:13-41
 activity#com.example.bilalsalman.waterics.SMSCode
 ADDED from /home/mahmed/NU FAST/7th semester/Hci/Waterics/app/src/main/AndroidManifest.xml:56:9-63:20
 	android:parentActivityName

@@ -71,14 +71,18 @@ public class new_complaint extends Fragment implements  View.OnClickListener{
         ref.child("Users").child(userid).addListenerForSingleValueEvent(new ValueEventListener() {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.child("fname").getValue() != null)
-                    setname(dataSnapshot.child("fname").getValue().toString());
+                {
+                    name = dataSnapshot.child("fname").getValue().toString();
+                }
                 if(dataSnapshot.child("num").getValue() != null)
-                    setpnumber(dataSnapshot.child("num").getValue().toString());
+                {
+                    pnumber = dataSnapshot.child("num").getValue().toString();
+                }
                 if(dataSnapshot.child("address").getValue() != null)
-                    setaddress(dataSnapshot.child("address").getValue().toString());
-
-
-            }
+                {
+                    address = dataSnapshot.child("address").getValue().toString();
+                }
+        }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -86,14 +90,16 @@ public class new_complaint extends Fragment implements  View.OnClickListener{
             }
         });
 
+        Log.d("hello123",name);
+
         String id = userdata.push().getKey();
-        NewComplaintDataForFireBase obj = new NewComplaintDataForFireBase(currentDateandTime,"broken pipe",id,name,address,false,pnumber,"Testing Object");
+
+
+
+        //Get data here from user.
+
+        admin_complaintcard obj = new admin_complaintcard(currentDateandTime,id,address,"Type Here","Message","Eta not define");
         userdata.child("Complaints").child(id).setValue(obj);
-
-
-        id = userdata.push().getKey();
-        NewComplaintDataForFireBase obj1 = new NewComplaintDataForFireBase(currentDateandTime,"broken pipe",id,name,address,false,pnumber,"Testing Object");
-        userdata.child("Complaints").child(id).setValue(obj1);
 
 
         Toast.makeText(this.getContext(), "Complaint Send To FireBase", Toast.LENGTH_SHORT).show();

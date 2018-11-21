@@ -963,6 +963,7 @@ id beginning
 id billid
 id blocking
 id bottom
+id button
 id buttonPanel
 id cancel_action
 id cdate
@@ -970,6 +971,10 @@ id center
 id center_horizontal
 id center_vertical
 id chains
+id checkBox
+id checkBox2
+id checkBox3
+id checkBox4
 id checkbox
 id chronometer
 id cid
@@ -1078,10 +1083,6 @@ id progress_circular
 id progress_horizontal
 id rLayout
 id radio
-id radioButton
-id radioButton2
-id radioButton3
-id radioButton4
 id recyclerView
 id register
 id right
@@ -1275,6 +1276,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+menu menu_admin_tabbed
 menu menu_tabbed_activity
 menu menu_tabbedactivity
 mipmap ic_launcher

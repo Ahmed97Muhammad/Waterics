@@ -22,6 +22,11 @@ public class admin_complaintcard {
         this.eta = eta;
     }
 
+    public admin_complaintcard()
+    {
+
+    }
+
     public String getComplaintID()
     {
         return complaintID;

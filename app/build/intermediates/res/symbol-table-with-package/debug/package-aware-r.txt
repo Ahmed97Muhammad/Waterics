@@ -927,6 +927,7 @@ id FUNCTION
 id META
 id SHIFT
 id SYM
+id acidity
 id ack
 id acknowledged
 id action0
@@ -941,6 +942,7 @@ id action_container
 id action_context_bar
 id action_divider
 id action_image
+id action_logout
 id action_menu_divider
 id action_menu_presenter
 id action_mode_bar
@@ -951,6 +953,8 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id addr_cencel
+id addr_confirm
 id adjust_height
 id adjust_width
 id alertTitle
@@ -966,6 +970,7 @@ id beginning
 id billid
 id blocking
 id bottom
+id burst
 id buttonPanel
 id cancel_action
 id cdate
@@ -973,10 +978,6 @@ id center
 id center_horizontal
 id center_vertical
 id chains
-id checkBox
-id checkBox2
-id checkBox3
-id checkBox4
 id checkbox
 id chronometer
 id cid
@@ -984,6 +985,7 @@ id clip_horizontal
 id clip_vertical
 id code_title
 id collapseActionView
+id complain_cencel
 id complain_submit
 id constraintLayout
 id container
@@ -1004,7 +1006,6 @@ id design_navigation_view
 id dimensions
 id direct
 id disableHome
-id editText2
 id edit_query
 id end
 id end_padder
@@ -1043,6 +1044,7 @@ id invisible
 id italic
 id item_touch_helper_previous_elevation
 id largeLabel
+id leakage
 id left
 id light
 id line1
@@ -1085,6 +1087,7 @@ id place_autocomplete_search_button
 id place_autocomplete_search_input
 id place_autocomplete_separator
 id placepick
+id placepick2
 id progress_circular
 id progress_horizontal
 id rLayout
@@ -1117,7 +1120,9 @@ id search_plate
 id search_src_text
 id search_voice_btn
 id section_label
+id section_label2
 id select_dialog_listview
+id shortage
 id shortcut
 id showCustom
 id showHome
@@ -1155,6 +1160,11 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textView
+id textView10
+id textView11
+id textView12
+id textView13
+id textView14
 id textView2
 id textView3
 id textView4
@@ -1238,7 +1248,9 @@ layout activity_admin_complaint_center
 layout activity_admin_tabbed
 layout activity_main
 layout activity_maps
+layout activity_settings
 layout activity_signin
+layout activity_signin1
 layout activity_smscode
 layout activity_smscode_in
 layout activity_tabbed_activity

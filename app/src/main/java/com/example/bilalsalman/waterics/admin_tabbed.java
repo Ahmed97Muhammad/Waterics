@@ -1,5 +1,6 @@
 package com.example.bilalsalman.waterics;
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,8 +20,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class admin_tabbed extends AppCompatActivity {
+    private FirebaseAuth mAuth;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -51,6 +56,7 @@ public class admin_tabbed extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        mAuth = FirebaseAuth.getInstance();
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabsadmin);
 
@@ -81,9 +87,26 @@ public class admin_tabbed extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            // Toast.makeText(getApplicationContext(), "Logging Out!", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(admin_tabbed.this,settings.class);
+            startActivity(intent);
+
+
             return true;
         }
 
+        if (id == R.id.action_logout) {
+            //   Toast.makeText(getApplicationContext(), "Logging Out!", Toast.LENGTH_SHORT).show();
+
+
+            Toast.makeText(getApplicationContext(), "Logging Out!", Toast.LENGTH_SHORT).show();
+
+            mAuth.signOut();
+            startActivity(new Intent(admin_tabbed.this, MainActivity.class));
+            return true;
+
+        }
         return super.onOptionsItemSelected(item);
     }
 

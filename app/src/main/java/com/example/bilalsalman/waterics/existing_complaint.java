@@ -11,25 +11,48 @@ import android.view.LayoutInflater;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.support.v7.widget.RecyclerView.LayoutManager;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class existing_complaint extends Fragment{
+    private FirebaseAuth mAuth;
+    private DatabaseReference userdata;
+    private DatabaseReference ref;
+
+    String userid;
+
     RecyclerView rview;
     recyclerAdapter adapter;
 
     List<cardViewClass> cards;
+    List<admin_complaintcard> listofcards;
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.existing_complaint, container, false);
 
+        userdata = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
+        ref = FirebaseDatabase.getInstance().getReference();
+
+        mAuth.getCurrentUser();
+        userid=mAuth.getUid();
+
         cards = new ArrayList<cardViewClass>();
+        listofcards = new ArrayList<admin_complaintcard>();
 
 //a dummy object just to check later objects from firebase
-        cardViewClass obj = new cardViewClass("001","supervisor","not acknowledge","01/11/18","03/11/18","chutiyapa","waterdrop");
+/*        cardViewClass obj = new cardViewClass("001","supervisor","not acknowledge","01/11/18","03/11/18","chutiyapa","waterdrop");
         cards.add(obj);
 
         cardViewClass obj1 = new cardViewClass("002","supervisor","not acknowledge","01/11/18","03/11/18","watershortage","waterdrop");
@@ -52,16 +75,60 @@ public class existing_complaint extends Fragment{
 
         cardViewClass obj7 = new cardViewClass("008","supervisor","not acknowledge","date","res","watershortage","waterdrop");
         cards.add(obj7);
+*/
+
+
 
         rview = (RecyclerView) rootView.findViewById(R.id.rview);
         rview.setHasFixedSize(true);
         rview.setLayoutManager(new LinearLayoutManager(this.getActivity().getApplicationContext()));
 
-        adapter = new recyclerAdapter(this.getContext(), cards);
-        rview.setAdapter(adapter);
+        fillTheList();
+
+        /*adapter = new recyclerAdapter(this.getContext(), listofcards);
+        rview.setAdapter(adapter);*/
 
         return rootView;
 
+    }
+
+
+    public void fillTheList()
+    {
+        userdata.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                DataSnapshot complaintSnapshot = dataSnapshot.child("Complaints");
+                Iterable<DataSnapshot> complaintChildren = complaintSnapshot.getChildren();
+
+                for (DataSnapshot complaint : complaintChildren) {
+
+                    admin_complaintcard c = complaint.getValue(admin_complaintcard.class);
+
+                    if(userid.equals(c.getUid())) {
+                        listofcards.add(c);
+                        //Toast.makeText(this.getContext(), "Complaint Found", Toast.LENGTH_SHORT).show();
+                    }
+
+                    //listofcards.add(c);
+                }
+                display();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                // ...
+            }
+        });
+    }
+
+    private void display()
+    {
+        adapter = new recyclerAdapter(this.getContext(), listofcards);
+        //adapter.notifyDataSetChanged();
+        rview.setAdapter(adapter);
     }
 
 

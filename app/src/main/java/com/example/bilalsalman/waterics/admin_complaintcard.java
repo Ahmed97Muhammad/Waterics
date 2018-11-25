@@ -11,6 +11,29 @@ public class admin_complaintcard {
     String msg;
     String eta;
 
+    String uid;
+
+    public admin_complaintcard(String date, String complaintID, String add, String type, String msg, String eta, String uid) {
+        this.date = date;
+        this.complaintID = complaintID;
+        this.add = add;
+        this.ack = false;
+        this.type = type;
+        this.msg = msg;
+        this.eta = eta;
+        this.uid = uid;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+
+
     public admin_complaintcard(String date, String complaintID, String add, String type, String msg, String eta)
     {
         this.date = date;

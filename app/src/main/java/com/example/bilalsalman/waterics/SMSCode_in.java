@@ -132,32 +132,33 @@ public class SMSCode_in extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            //verification successful we will start the profile activity
+                                //verification successful we will start the profile activity
 
 
-                            //push to firebase
-                        if(admin.equals("03218710363"))
-                        {
-                            //Log in admin
+                                //push to firebase
+                            if(admin.equals("03218710363"))
+                            {
+                                //Log in admin
 
-                            Toast.makeText(getApplicationContext(), "Admin Logged in.", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(SMSCode_in.this, admin_tabbed.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(intent);
+                                Toast.makeText(getApplicationContext(), "Admin Logged in.", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(SMSCode_in.this, admin_tabbed.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
 
+
+                            }
+
+                            //else
+                            else
+                            {
+                                Intent intent = new Intent(SMSCode_in.this, tabbed_activity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
+
+                            }
 
                         }
-
-                        //else
-                        else
-                        {
-                            Intent intent = new Intent(SMSCode_in.this, tabbed_activity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(intent);
-
-                        }
-
-                        } else {
+                        else {
 
                             //verification unsuccessful.. display an error message
 

@@ -16,10 +16,17 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.recycl
 
     private Context lists;
     private List<cardViewClass> cards;
+    private List<admin_complaintcard> listofcards;
 
-    public recyclerAdapter(Context lists, List<cardViewClass> cards) {
+
+    /*public recyclerAdapter(Context lists, List<cardViewClass> cards) {
         this.lists = lists;
         this.cards = cards;
+    }*/
+
+    public recyclerAdapter(Context lists, List<admin_complaintcard> cards) {
+        this.lists = lists;
+        this.listofcards=cards;
     }
 
     @NonNull
@@ -34,17 +41,36 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.recycl
 
     @Override
     public void onBindViewHolder(@NonNull recycleView holder, int position) {
-        cardViewClass obj = cards.get(position);
+        //cardViewClass obj = cards.get(position);
 
-        holder.viewId.setText(obj.getId());
+        /*holder.viewId.setText(obj.getId());
         holder.viewack.setText(obj.getAck());
         holder.viewsupervisor.setText(obj.getSupervisor());
         holder.viewdt.setText(obj.getDate());
         holder.viewres.setText(obj.getRes());
+        holder.viewtype.setText(obj.getType());*/
+
+        admin_complaintcard obj = listofcards.get(position);
+
+        holder.viewId.setText(obj.getComplaintID());
+        holder.viewsupervisor.setText("Fix it yourself");
+        holder.viewdt.setText(obj.getDate());
+        holder.viewres.setText(obj.getEta());
         holder.viewtype.setText(obj.getType());
 
+        if(obj.isAck())
+        {
+            holder.viewack.setText("Acknowledged");
+        }
+        else
+        {
+            holder.viewack.setText("Not Acknowledged");
+        }
+
+
         Resources resources = lists.getResources();
-        final int resourceId = resources.getIdentifier(obj.getImage(), "drawable", lists.getPackageName());
+        final int resourceId = resources.getIdentifier("waterdrop", "drawable", lists.getPackageName());
+        //final int resourceId = resources.getIdentifier(obj.getImage(), "drawable", lists.getPackageName());
 
        // holder.imageview.setImageDrawable(resources.getDrawable(resourceId));
 
@@ -52,7 +78,7 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.recycl
 
     @Override
     public int getItemCount() {
-        return cards.size();
+        return listofcards.size();
     }
 
     class recycleView extends RecyclerView.ViewHolder{

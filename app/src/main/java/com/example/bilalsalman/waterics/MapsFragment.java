@@ -35,7 +35,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     SupportMapFragment mapFragment;
     private FirebaseAuth mAuth;
     private DatabaseReference userdata;
-    private List<NewComplaintDataForFireBase> ll;
+    private List<admin_complaintcard> ll;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -127,11 +127,11 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
 
                 for (DataSnapshot complaint : complaintChildren) {
 
-                    NewComplaintDataForFireBase l = complaint.getValue(NewComplaintDataForFireBase.class);
+                    admin_complaintcard l = complaint.getValue(admin_complaintcard.class);
 
-                    if(!(l.getAddress()==null)) {
-                        mMap.addMarker(new MarkerOptions().position(getLocationFromAddress(l.getAddress())).title(l.getType()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
-                        Toast.makeText(getContext(), l.getAddress(), Toast.LENGTH_SHORT).show();
+                    if(!(l.getAdd()==null)) {
+                        mMap.addMarker(new MarkerOptions().position(getLocationFromAddress(l.getAdd())).title(l.getType()).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+                        //Toast.makeText(getContext(), l.getAddress(), Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -171,7 +171,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         return p1;
     }
 
-    private List<NewComplaintDataForFireBase> getAddresses()
+    /*private List<NewComplaintDataForFireBase> getAddresses()
     {
         final List<NewComplaintDataForFireBase> cl = new ArrayList<>();
 
@@ -207,5 +207,5 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         });
 
         return cl;
-    }
+    }*/
 }

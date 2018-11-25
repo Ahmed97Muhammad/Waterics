@@ -112,8 +112,9 @@ public class AdminComplaintCenter extends Fragment {
                     admin_complaintcard c = complaint.getValue(admin_complaintcard.class);
                     //Log.d("hello123",c.getAdd());
 
-                    cl.add(c);
+                    clist.add(c);
                 }
+                display();
             }
 
             @Override
@@ -128,18 +129,17 @@ public class AdminComplaintCenter extends Fragment {
         //cl.remove(cl.size()-1);
 
 
-        admin_complaintcardAdapter adapter = new admin_complaintcardAdapter(this.getActivity().getApplicationContext(), cl);
+        /*admin_complaintcardAdapter adapter = new admin_complaintcardAdapter(this.getActivity().getApplicationContext(), clist);
+        adapter.notifyDataSetChanged();
+        //setting adapter to recyclerview
+        recyclerView.setAdapter(adapter);*/
+    }
+
+    private void display()
+    {
+        admin_complaintcardAdapter adapter = new admin_complaintcardAdapter(this.getActivity().getApplicationContext(), clist);
         adapter.notifyDataSetChanged();
         //setting adapter to recyclerview
         recyclerView.setAdapter(adapter);
-    }
-
-    private List<admin_complaintcard> getdata() {
-
-
-
-        return null;
-
-
     }
 }

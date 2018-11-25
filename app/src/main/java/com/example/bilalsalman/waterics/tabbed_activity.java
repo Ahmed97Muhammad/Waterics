@@ -1,5 +1,6 @@
 package com.example.bilalsalman.waterics;
 
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -21,7 +22,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class tabbed_activity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
+
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -59,6 +65,7 @@ public class tabbed_activity extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
 
+        mAuth = FirebaseAuth.getInstance();
 
     }
 
@@ -79,8 +86,20 @@ public class tabbed_activity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+           // Toast.makeText(getApplicationContext(), "Logging Out!", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(tabbed_activity.this,settings.class);
+            startActivity(intent);
+
+
+            return true;
+        }
+
+        if (id == R.id.action_logout) {
             Toast.makeText(getApplicationContext(), "Logging Out!", Toast.LENGTH_SHORT).show();
 
+            mAuth.signOut();
+            startActivity(new Intent(tabbed_activity.this, MainActivity.class));
             return true;
         }
 
@@ -88,6 +107,10 @@ public class tabbed_activity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onBackPressed() {
+// empty so nothing happens
+    }
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to

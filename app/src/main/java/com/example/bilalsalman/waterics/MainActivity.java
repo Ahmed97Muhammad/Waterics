@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     Button signup;
     String  mVerificationId;
     Spinner spin;
+    private FirebaseAuth mAuth;
 
     PhoneAuthProvider.ForceResendingToken mResendToken;
 
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         userdata = FirebaseDatabase.getInstance().getReference();
 
+        mAuth = FirebaseAuth.getInstance();
 
         signup = (Button)findViewById(R.id.signup);
         add = (TextView)findViewById(R.id.add);
@@ -216,6 +218,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
 
+        if (mAuth.getCurrentUser() != null) {
+            finish();
+            if(mAuth.getCurrentUser().getPhoneNumber().equals("+923218710363"))
+                startActivity(new Intent(this, admin_tabbed.class));
+            else
+                startActivity(new Intent(this, tabbed_activity.class));
+        }
+    }
 
 }
+

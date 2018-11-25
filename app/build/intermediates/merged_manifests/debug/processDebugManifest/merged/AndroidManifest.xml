@@ -11,7 +11,7 @@
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the 'MyLocation' functionality. 
+         location permissions for the 'MyLocation' functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
@@ -60,7 +60,7 @@
              Note that the API key is linked to the encryption key used to sign the APK.
              You need a different API key for each encryption key, including the release key that is used to
              sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -75,7 +75,8 @@
         <activity
             android:name="com.example.bilalsalman.waterics.tabbed_activity"
             android:label="@string/title_activity_tabbed_activity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.bilalsalman.waterics.admin_tabbed"
             android:label="@string/admin" />
@@ -88,6 +89,14 @@
                 android:value="com.example.bilalsalman.waterics.MainActivity" />
         </activity>
         <activity
+            android:name="com.example.bilalsalman.waterics.SMSCode1"
+            android:label="@string/title_activity_smscode"
+            android:parentActivityName="com.example.bilalsalman.waterics.settings" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.bilalsalman.waterics.settings" />
+        </activity>
+        <activity
             android:name="com.example.bilalsalman.waterics.SMSCode_in"
             android:label="@string/title_activity_smscode_in"
             android:parentActivityName="com.example.bilalsalman.waterics.signin"
@@ -96,6 +105,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.bilalsalman.waterics.signin" />
         </activity>
+        <activity android:name="com.example.bilalsalman.waterics.settings" />
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:excludeFromRecents="true"

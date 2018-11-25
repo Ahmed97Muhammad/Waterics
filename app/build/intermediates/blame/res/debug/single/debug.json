@@ -2048,6 +2048,10 @@
         "source": "/home/mahmed/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/697075afc9be0cc23e8ce6aa95a1ff0f/res/drawable-xxhdpi-v4/abc_ic_star_half_black_16dp.png"
     },
     {
+        "merged": "/home/mahmed/NU FAST/7th semester/Hci/Waterics/app/build/intermediates/res/merged/debug/layout_activity_signin1.xml.flat",
+        "source": "/home/mahmed/NU FAST/7th semester/Hci/Waterics/app/src/main/res/layout/activity_signin1.xml"
+    },
+    {
         "merged": "/home/mahmed/NU FAST/7th semester/Hci/Waterics/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
         "source": "/home/mahmed/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/697075afc9be0cc23e8ce6aa95a1ff0f/res/drawable-xxxhdpi-v4/abc_ic_menu_paste_mtrl_am_alpha.png"
     },
@@ -2146,6 +2150,10 @@
     {
         "merged": "/home/mahmed/NU FAST/7th semester/Hci/Waterics/app/build/intermediates/res/merged/debug/color-v23_abc_tint_edittext.xml.flat",
         "source": "/home/mahmed/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/697075afc9be0cc23e8ce6aa95a1ff0f/res/color-v23/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/home/mahmed/NU FAST/7th semester/Hci/Waterics/app/build/intermediates/res/merged/debug/layout_activity_settings.xml.flat",
+        "source": "/home/mahmed/NU FAST/7th semester/Hci/Waterics/app/src/main/res/layout/activity_settings.xml"
     },
     {
         "merged": "/home/mahmed/NU FAST/7th semester/Hci/Waterics/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",

@@ -56,6 +56,22 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.recycl
         holder.viewsupervisor.setText("Fix it yourself");
         holder.viewdt.setText(obj.getDate());
         holder.viewres.setText(obj.getEta());
+        String complaintType = obj.getType();
+        if(complaintType.equalsIgnoreCase("Pipe Burst")) {
+            holder.imageview.setImageResource(R.drawable.pb);
+        }
+        else if(complaintType.equalsIgnoreCase("Water Shortage")) {
+            holder.imageview.setImageResource(R.drawable.wshort);
+        }
+        else if(complaintType.equalsIgnoreCase("Acidity in Water")) {
+            holder.imageview.setImageResource(R.drawable.acid);
+        }
+        else if(complaintType.equalsIgnoreCase("Leakage")) {
+            holder.imageview.setImageResource(R.drawable.leak);
+        }
+        else {
+            holder.imageview.setImageResource(R.drawable.waterdrop);
+        }
         holder.viewtype.setText(obj.getType());
 
         if(obj.isAck())
@@ -68,8 +84,8 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.recycl
         }
 
 
-        Resources resources = lists.getResources();
-        final int resourceId = resources.getIdentifier("waterdrop", "drawable", lists.getPackageName());
+        //Resources resources = lists.getResources();
+        //final int resourceId = resources.getIdentifier("waterdrop", "drawable", lists.getPackageName());
         //final int resourceId = resources.getIdentifier(obj.getImage(), "drawable", lists.getPackageName());
 
        // holder.imageview.setImageDrawable(resources.getDrawable(resourceId));
@@ -90,7 +106,6 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.recycl
             super(itemView);
 
             imageview = itemView.findViewById(R.id.imageView);
-            imageview.setImageResource(R.drawable.waterdrop);
             viewId = itemView.findViewById(R.id.viewId);
             viewsupervisor = itemView.findViewById(R.id.viewsupervisor);
             viewack = itemView.findViewById(R.id.viewack);

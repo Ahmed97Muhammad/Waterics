@@ -81,7 +81,8 @@
         android:layout_marginLeft="11dp"
         android:layout_marginTop="19dp"
         android:ems="10"
-        android:hint="Billing Id"
+        android:maxLength="14"
+        android:hint="Enter Your 14 Digit Billing ID"
         android:inputType="number"
         android:textColor="@color/mycolor" />
 

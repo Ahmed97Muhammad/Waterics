@@ -99,6 +99,7 @@ public class existing_complaint extends Fragment{
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
+                listofcards = new ArrayList<admin_complaintcard>();
                 DataSnapshot complaintSnapshot = dataSnapshot.child("Complaints");
                 Iterable<DataSnapshot> complaintChildren = complaintSnapshot.getChildren();
 

@@ -571,6 +571,7 @@ color material_grey_600
 color material_grey_800
 color material_grey_850
 color material_grey_900
+color midnight
 color mycolor
 color notification_action_color_filter
 color notification_icon_bg_color
@@ -1033,6 +1034,7 @@ id icon_group
 id icon_only
 id ifRoom
 id image
+id image2
 id imageView
 id imageView2
 id imageView3
@@ -1297,6 +1299,7 @@ layout place_autocomplete_progress
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout splash
 layout support_simple_spinner_dropdown_item
 menu menu_admin_tabbed
 menu menu_tabbed_activity
@@ -1589,6 +1592,7 @@ style RtlOverlay_Widget_AppCompat_Search_DropDown_Text
 style RtlOverlay_Widget_AppCompat_SearchView_MagIcon
 style RtlUnderlay_Widget_AppCompat_ActionButton
 style RtlUnderlay_Widget_AppCompat_ActionButton_Overflow
+style SplashTheme
 style TextAppearance_AppCompat
 style TextAppearance_AppCompat_Body1
 style TextAppearance_AppCompat_Body2

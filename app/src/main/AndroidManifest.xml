@@ -16,18 +16,22 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/w"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".signin">
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".signin"
+            android:screenOrientation="portrait"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -42,48 +46,57 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" />
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".tabbed_activity"
             android:label="@string/title_activity_tabbed_activity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".admin_tabbed"
-            android:label="@string/admin" />
+            android:label="@string/admin"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".SMSCode"
             android:label="@string/title_activity_smscode"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.bilalsalman.waterics.MainActivity" />
         </activity>
-
-
         <activity
             android:name=".SMSCode1"
             android:label="@string/title_activity_smscode"
-            android:parentActivityName=".settings">
+            android:parentActivityName=".settings"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.bilalsalman.waterics.settings" />
         </activity>
-
-
         <activity
             android:name=".SMSCode_in"
             android:label="@string/title_activity_smscode_in"
             android:parentActivityName=".signin"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.bilalsalman.waterics.signin" />
         </activity>
-        <activity android:name=".settings"></activity>
+        <activity
+            android:name=".settings"
+            android:parentActivityName=".tabbed_activity"
+            android:screenOrientation="portrait"/>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.bilalsalman.waterics.tabbed_activity" />
     </application>
 
 </manifest>

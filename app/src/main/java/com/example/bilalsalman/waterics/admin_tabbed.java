@@ -85,16 +85,6 @@ public class admin_tabbed extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            // Toast.makeText(getApplicationContext(), "Logging Out!", Toast.LENGTH_SHORT).show();
-
-            Intent intent = new Intent(admin_tabbed.this,settings.class);
-            startActivity(intent);
-
-
-            return true;
-        }
 
         if (id == R.id.action_logout) {
             //   Toast.makeText(getApplicationContext(), "Logging Out!", Toast.LENGTH_SHORT).show();
@@ -103,7 +93,7 @@ public class admin_tabbed extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Logging Out!", Toast.LENGTH_SHORT).show();
 
             mAuth.signOut();
-            startActivity(new Intent(admin_tabbed.this, MainActivity.class));
+            startActivity(new Intent(admin_tabbed.this, signin.class));
             return true;
 
         }

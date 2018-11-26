@@ -1,10 +1,13 @@
 package com.example.bilalsalman.waterics;
 
+import android.support.v7.app.ActionBar;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.HapticFeedbackConstants;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,6 +23,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import static android.app.Activity.RESULT_OK;
 
 public class settings extends AppCompatActivity {
 
@@ -39,7 +44,7 @@ public class settings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-
+        ActionBar actionBar = getSupportActionBar();
 
         name = (TextView)findViewById(R.id.textView10);
         addr = (TextView)findViewById(R.id.textView11);
@@ -61,13 +66,13 @@ public class settings extends AppCompatActivity {
 
         submit = (Button)findViewById(R.id.addr_confirm);
         cencel = (Button)findViewById(R.id.addr_cencel);
-
+        submit.setHapticFeedbackEnabled(true);
 
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
                 if (addrchange.getText().toString().trim().equals("Address"))
                 {
                     Log.d("ahmed123","here");
@@ -89,15 +94,17 @@ public class settings extends AppCompatActivity {
         });
 
 
-
+        cencel.setHapticFeedbackEnabled(true);
         cencel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if (!addr.equals("Address"))
+                view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+                if (!addrchange.equals("Address"))
                 {
-                    addr.setText("Address");
+                    addrchange.setText("Address");
                 }
+                Intent intent = new Intent(settings.this,tabbed_activity.class);
+                startActivity(intent);
             }
         });
 
@@ -110,40 +117,35 @@ public class settings extends AppCompatActivity {
     private void getFromFireBase()
     {
 
-
-
-            ref.child("Users").child(userid).addListenerForSingleValueEvent(new ValueEventListener() {
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    if(dataSnapshot.child("fname").getValue() != null)
-                    {
-                        n = dataSnapshot.child("fname").getValue().toString();
-                    }
-                    if(dataSnapshot.child("num").getValue() != null)
-                    {
-                        p = dataSnapshot.child("num").getValue().toString();
-                    }
-                    if(dataSnapshot.child("address").getValue() != null)
-                    {
-                        a = dataSnapshot.child("address").getValue().toString();
-                    }
-                    if(dataSnapshot.child("bill").getValue() != null)
-                    {
-                        bill = dataSnapshot.child("bill").getValue().toString();
-                    }
-                    displayall();
+        ref.child("Users").child(userid).addListenerForSingleValueEvent(new ValueEventListener() {
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.child("fname").getValue() != null)
+                {
+                    n = dataSnapshot.child("fname").getValue().toString();
                 }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                if(dataSnapshot.child("num").getValue() != null)
+                {
+                    p = dataSnapshot.child("num").getValue().toString();
                 }
-            });
+                if(dataSnapshot.child("address").getValue() != null)
+                {
+                    a = dataSnapshot.child("address").getValue().toString();
+                }
+                if(dataSnapshot.child("bill").getValue() != null)
+                {
+                    bill = dataSnapshot.child("bill").getValue().toString();
+                }
+                displayall();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 
     }
-
-
-
 
 
     private void displayall()
@@ -153,9 +155,9 @@ public class settings extends AppCompatActivity {
         pno.setText("");
         addr.setText("");
 
-        name.setText("Name:  "+n);
-        pno.setText("Phone Number: "+p);
-        addr.setText("Address: "+a);
+        name.setText(n);
+        pno.setText(p);
+        addr.setText(a);
     }
 
     public void placepick1(View view) {

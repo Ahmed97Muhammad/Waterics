@@ -99,7 +99,7 @@ public class tabbed_activity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Logging Out!", Toast.LENGTH_SHORT).show();
 
             mAuth.signOut();
-            startActivity(new Intent(tabbed_activity.this, MainActivity.class));
+            startActivity(new Intent(tabbed_activity.this, signin.class));
             return true;
         }
 

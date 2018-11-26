@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
+import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -72,8 +73,9 @@ public class MainActivity extends AppCompatActivity {
 
         spin = (Spinner)findViewById(R.id.spinner);
         String [] country_names = {"Pakistan","India","Afghanistan","Bangladesh"};
-
-
+        add.setFocusable(false);
+        add.setCursorVisible(false);
+        signup.setHapticFeedbackEnabled(true);
         spin.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,country_names));
 
 
@@ -103,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
         signup.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
@@ -112,9 +113,9 @@ public class MainActivity extends AppCompatActivity {
                   String num = phone.getText().toString().trim();
                   String address = add.getText().toString().trim();
                   String fname = name.getText().toString().trim();
-
+                  view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
                   if (num.equals("")) {
-                      phone.setError("Enter phone number in format: 032xxxxxxx!");
+                      phone.setError("Enter phone number in format: 03xxxxxxxx!");
                       phone.requestFocus();
                       return;
                   }
@@ -161,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
                       snackbar.show();
 */
 
-                      Toast.makeText(getApplicationContext(), "You are already register. Please go back to the signin page to login.", Toast.LENGTH_SHORT).show();
+                      Toast.makeText(getApplicationContext(), "You are already registered. Please go back to the signin page to login.", Toast.LENGTH_SHORT).show();
                       return;
                   }
 
@@ -173,11 +174,11 @@ public class MainActivity extends AppCompatActivity {
                 if(cc_name == "Pakistan")
                     c_code = "+92";
                 if(cc_name == "India")
-                    c_code = "+92";
+                    c_code = "+91";
                 if(cc_name == "Afghanistan")
-                    c_code = "+92";
+                    c_code = "+93";
                 if(cc_name == "Bangladesh")
-                    c_code = "+92";
+                    c_code = "+880";
 
 
                 Intent intent = new Intent(MainActivity.this,SMSCode.class);
@@ -215,19 +216,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("Ahmed",(String) place.getAddress());
                 add.setText(place.getAddress());
             }
-        }
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        if (mAuth.getCurrentUser() != null) {
-            finish();
-            if(mAuth.getCurrentUser().getPhoneNumber().equals("+923218710363"))
-                startActivity(new Intent(this, admin_tabbed.class));
-            else
-                startActivity(new Intent(this, tabbed_activity.class));
         }
     }
 

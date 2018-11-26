@@ -29,7 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.concurrent.TimeUnit;
 
-class SMSCode1 extends AppCompatActivity {
+public class SMSCode1 extends AppCompatActivity {
 
     TextView code;
     Button verify;
@@ -153,7 +153,7 @@ class SMSCode1 extends AppCompatActivity {
 
 
 
-                            Intent intent = new Intent(SMSCode1.this, settings.class);
+                            Intent intent = new Intent(SMSCode1.this, tabbed_activity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
 

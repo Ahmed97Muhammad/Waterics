@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,10 +54,12 @@ public class new_complaint extends Fragment implements  View.OnClickListener{
         Button submit_complain = (Button) rootView.findViewById(R.id.complain_submit);
 
         submit_complain.setOnClickListener(this);
+        submit_complain.setHapticFeedbackEnabled(true);
 
         Button cencel_complain = (Button) rootView.findViewById(R.id.complain_cencel);
 
         cencel_complain.setOnClickListener(this);
+        cencel_complain.setHapticFeedbackEnabled(true);
 
 
         mAuth.getCurrentUser();
@@ -78,6 +81,7 @@ public class new_complaint extends Fragment implements  View.OnClickListener{
                 cencelComplain();
                 break;
         }
+        view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
     }
 
     private void cencelComplain() {

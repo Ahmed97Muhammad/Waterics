@@ -90,7 +90,7 @@
         android:layout_below="@+id/section_label2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="Name"
+        android:hint="Name"
         android:textColor="@color/mycolor"
         android:textSize="22sp" />
 
@@ -101,7 +101,8 @@
         android:layout_below="@+id/textView10"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
-        android:text="Address"
+        android:gravity="center"
+        android:hint="Address"
         android:textColor="@color/mycolor"
         android:textSize="22sp" />
 
@@ -112,7 +113,7 @@
         android:layout_below="@+id/textView11"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
-        android:text="Phone Number"
+        android:hint="Phone Number"
         android:textColor="@color/mycolor"
         android:textSize="22sp" />
 

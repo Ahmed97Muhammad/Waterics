@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -72,15 +74,16 @@ public class signin extends AppCompatActivity {
 
         spin.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,country_names));
 
-
+        Button signin = (Button)findViewById(R.id.signin);
+        signin.setHapticFeedbackEnabled(true);
         findViewById(R.id.signin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 num = phone.getText().toString().trim();
-
+                view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
                 if (num.equals("")) {
-                    phone.setError("Enter phone number in format: 0321xxxxxx!");
+                    phone.setError("Enter phone number in format: 03xxxxxxxx!");
                     phone.requestFocus();
                     return;
                 }
@@ -109,11 +112,11 @@ public class signin extends AppCompatActivity {
                 if(cc_name == "Pakistan")
                     c_code = "+92";
                 if(cc_name == "India")
-                    c_code = "+92";
+                    c_code = "+91";
                 if(cc_name == "Afghanistan")
-                    c_code = "+92";
+                    c_code = "+93";
                 if(cc_name == "Bangladesh")
-                    c_code = "+92";
+                    c_code = "+880";
 
                 //Intent intent = new Intent(getApplicationContext(),tabbed_activity.class);
 
@@ -131,14 +134,20 @@ public class signin extends AppCompatActivity {
 
             }
         });
+
+        Button register = (Button)findViewById(R.id.register);
+        register.setHapticFeedbackEnabled(true);
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View view){
+                view.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+                Intent intent = new Intent(signin.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    public void registernow(View view)
-    {
-        Intent intent = new Intent(signin.this, MainActivity.class);
-       //Intent intent = new Intent(signin.this, admin_tabbed.class);
-        startActivity(intent);
-    }
+
 
   /*  @Override
     protected void onStart() {
@@ -155,5 +164,23 @@ public class signin extends AppCompatActivity {
         }
     }
 */
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (mAuth.getCurrentUser() != null) {
+            if(mAuth.getCurrentUser().getPhoneNumber().equals("+923218710363"))
+                startActivity(new Intent(this, admin_tabbed.class));
+            else
+                startActivity(new Intent(this, tabbed_activity.class));
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        //do nothing
+    }
 }
 

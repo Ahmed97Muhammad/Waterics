@@ -10,6 +10,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -32,26 +36,19 @@ public class AdminComplaintCenter extends Fragment {
     private FragmentActivity mFrgAct;
     private Intent mIntent;
 
+    Spinner spin;
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.activity_admin_complaint_center, null);
 
 
-        /*recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity().getApplicationContext()));
+        String [] country_names = {"All Complaints","Acknowledged","UnAcknowledged"};
 
-        clist = new ArrayList<>();
+        spin = (Spinner) root.findViewById(R.id.spinner12);
 
-        clist.add(new admin_complaintcard("8/8/18","A1","Johar","No water","Abdul Saeed","090078601","Never"));
-        clist.add(new admin_complaintcard("8/8/18","A2","Johar","No water","Abdul Saeed","090078601","Never"));
-        clist.add(new admin_complaintcard("8/8/18","A3","Johar","No water","Abdul Saeed","090078601","Never"));
+        spin.setAdapter(new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_dropdown_item,country_names));
 
-        //creating recyclerview adapter
-        admin_complaintcardAdapter adapter = new admin_complaintcardAdapter(this.getActivity().getApplicationContext(), clist);
-
-        //setting adapter to recyclerview
-        recyclerView.setAdapter(adapter);*/
 
         userdata = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
@@ -59,43 +56,29 @@ public class AdminComplaintCenter extends Fragment {
         clist  = new ArrayList<>();
 
 
-        return root;
-    }
+        spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                fillTheList();
+            }
 
-    /*@Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_complaint_center);
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            }
+        });
 
-        clist = new ArrayList<>();
 
-        clist.add(new admin_complaintcard("8/8/18","A1","Johar","No water","Abdul Saeed","090078601","Never"));
-        clist.add(new admin_complaintcard("8/8/18","A2","Johar","No water","Abdul Saeed","090078601","Never"));
-        clist.add(new admin_complaintcard("8/8/18","A3","Johar","No water","Abdul Saeed","090078601","Never"));
-
-        //creating recyclerview adapter
-        admin_complaintcardAdapter adapter = new admin_complaintcardAdapter(this, clist);
-
-        //setting adapter to recyclerview
-        recyclerView.setAdapter(adapter);
-    }*/
-
-    public void onViewCreated(View view, Bundle savedInstanceState){
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getActivity().getApplicationContext()));
 
-//        clist.add(new admin_complaintcard());
 
-      /*  clist.add(new admin_complaintcard("8/8/18","Johar","No water","Abdul Saeed","090078601","Never"));
-        clist.add(new admin_complaintcard("8/8/18","Johar","No water","Abdul Saeed","090078601","Never"));
-        clist.add(new admin_complaintcard("8/8/18","Johar","No water","Abdul Saeed","090078601","Never"));
-*/
-        //creating recyclerview adapter
+        return root;
+    }
+
+
+    public void onViewCreated(View view, Bundle savedInstanceState){
 
         final List<admin_complaintcard> cl = new ArrayList<>();
 
@@ -104,15 +87,30 @@ public class AdminComplaintCenter extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
+                clist = new ArrayList<>();
                 DataSnapshot complaintSnapshot = dataSnapshot.child("Complaints");
                 Iterable<DataSnapshot> complaintChildren = complaintSnapshot.getChildren();
+
+                String value = spin.getSelectedItem().toString();
 
                 for (DataSnapshot complaint : complaintChildren) {
 
                     admin_complaintcard c = complaint.getValue(admin_complaintcard.class);
-                    //Log.d("hello123",c.getAdd());
 
-                    clist.add(c);
+                    if (value.equals("All Complaints")) {
+                        clist.add(c);
+                        //Toast.makeText(this.getContext(), "Complaint Found", Toast.LENGTH_SHORT).show();
+                    } else if (value.equals("Acknowledged") && c.isAck()) {
+
+                        clist.add(c);
+                        //Toast.makeText(this.getContext(), "Complaint Found", Toast.LENGTH_SHORT).show();
+                    } else if (value.equals("UnAcknowledged") && !c.isAck()) {
+
+                        clist.add(c);
+                        //Toast.makeText(this.getContext(), "Complaint Found", Toast.LENGTH_SHORT).show();
+                    }
+
+
                 }
                 display();
             }
@@ -125,18 +123,56 @@ public class AdminComplaintCenter extends Fragment {
         });
 
 
-        //cl.add(new admin_complaintcard("8/8/18","Johar","No water","Abdul Saeed","090078601","Never"));
-        //cl.remove(cl.size()-1);
+    }
 
 
-        /*admin_complaintcardAdapter adapter = new admin_complaintcardAdapter(this.getActivity().getApplicationContext(), clist);
-        adapter.notifyDataSetChanged();
-        //setting adapter to recyclerview
-        recyclerView.setAdapter(adapter);*/
+
+    private void fillTheList()
+    {
+
+        userdata.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                clist = new ArrayList<>();
+                DataSnapshot complaintSnapshot = dataSnapshot.child("Complaints");
+                Iterable<DataSnapshot> complaintChildren = complaintSnapshot.getChildren();
+
+                String value = spin.getSelectedItem().toString();
+
+                for (DataSnapshot complaint : complaintChildren) {
+
+                    admin_complaintcard c = complaint.getValue(admin_complaintcard.class);
+
+                    if (value.equals("All Complaints")) {
+                        clist.add(c);
+                        //Toast.makeText(this.getContext(), "Complaint Found", Toast.LENGTH_SHORT).show();
+                    } else if (value.equals("Acknowledged") && c.isAck()) {
+
+                        clist.add(c);
+                        //Toast.makeText(this.getContext(), "Complaint Found", Toast.LENGTH_SHORT).show();
+                    } else if (value.equals("UnAcknowledged") && !c.isAck()) {
+
+                        clist.add(c);
+                        //Toast.makeText(this.getContext(), "Complaint Found", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                display();
+            }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    // Getting Post failed, log a message
+                    // ...
+                }
+        });
+
     }
 
     private void display()
     {
+//        Toast.makeText(this.getContext(), "fired", Toast.LENGTH_SHORT).show();
+
         admin_complaintcardAdapter adapter = new admin_complaintcardAdapter(this.getActivity().getApplicationContext(), clist);
         adapter.notifyDataSetChanged();
         //setting adapter to recyclerview

@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         //Toast.makeText(getApplicationContext(), "Lets Begin!!!", Toast.LENGTH_SHORT).show();
 
         spin = (Spinner)findViewById(R.id.spinner);
-        String [] country_names = {"Pakistan","India","Afghanistan","Bangladesh"};
+        String [] country_names = {"PAK","IND","AFG","BAN"};
         add.setFocusable(false);
         add.setCursorVisible(false);
         signup.setHapticFeedbackEnabled(true);
@@ -171,13 +171,13 @@ public class MainActivity extends AppCompatActivity {
 
                 String c_code = "";
                 String cc_name = (String) spin.getSelectedItem();
-                if(cc_name == "Pakistan")
+                if(cc_name == "PAK")
                     c_code = "+92";
-                if(cc_name == "India")
+                if(cc_name == "IND")
                     c_code = "+91";
-                if(cc_name == "Afghanistan")
+                if(cc_name == "AFG")
                     c_code = "+93";
-                if(cc_name == "Bangladesh")
+                if(cc_name == "BAN")
                     c_code = "+880";
 
 

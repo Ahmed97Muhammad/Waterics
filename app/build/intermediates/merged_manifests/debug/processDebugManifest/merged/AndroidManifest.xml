@@ -93,7 +93,8 @@
             android:name="com.example.bilalsalman.waterics.SMSCode"
             android:label="@string/title_activity_smscode"
             android:parentActivityName="com.example.bilalsalman.waterics.MainActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.bilalsalman.waterics.MainActivity" />
@@ -102,7 +103,8 @@
             android:name="com.example.bilalsalman.waterics.SMSCode1"
             android:label="@string/title_activity_smscode"
             android:parentActivityName="com.example.bilalsalman.waterics.settings"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.bilalsalman.waterics.settings" />

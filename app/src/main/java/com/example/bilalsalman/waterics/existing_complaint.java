@@ -8,7 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.support.v7.widget.RecyclerView.LayoutManager;
 import android.widget.Toast;
@@ -27,7 +30,7 @@ public class existing_complaint extends Fragment{
     private FirebaseAuth mAuth;
     private DatabaseReference userdata;
     private DatabaseReference ref;
-
+    Spinner spin;
     String userid;
 
     RecyclerView rview;
@@ -41,6 +44,19 @@ public class existing_complaint extends Fragment{
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.existing_complaint, container, false);
 
+
+        String [] country_names = {"All Complaints","Acknowledged","UnAcknowledged"};
+
+        spin = (Spinner) rootView.findViewById(R.id.spinner2);
+
+        spin.setAdapter(new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_spinner_dropdown_item,country_names));
+
+  /*      Spinner spinner = (Spinner) rootView.findViewById(R.id.spinner1);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, values);
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinner.setAdapter(adapter);
+*/
+
         userdata = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         ref = FirebaseDatabase.getInstance().getReference();
@@ -50,6 +66,7 @@ public class existing_complaint extends Fragment{
 
         cards = new ArrayList<cardViewClass>();
         listofcards = new ArrayList<admin_complaintcard>();
+
 
 //a dummy object just to check later objects from firebase
 /*        cardViewClass obj = new cardViewClass("001","supervisor","not acknowledge","01/11/18","03/11/18","chutiyapa","waterdrop");
@@ -78,6 +95,19 @@ public class existing_complaint extends Fragment{
 */
 
 
+        spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                fillTheList();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
 
         rview = (RecyclerView) rootView.findViewById(R.id.rview);
         rview.setHasFixedSize(true);
@@ -93,6 +123,7 @@ public class existing_complaint extends Fragment{
     }
 
 
+
     public void fillTheList()
     {
         userdata.addValueEventListener(new ValueEventListener() {
@@ -103,16 +134,30 @@ public class existing_complaint extends Fragment{
                 DataSnapshot complaintSnapshot = dataSnapshot.child("Complaints");
                 Iterable<DataSnapshot> complaintChildren = complaintSnapshot.getChildren();
 
+                String value = spin.getSelectedItem().toString();
+
                 for (DataSnapshot complaint : complaintChildren) {
 
                     admin_complaintcard c = complaint.getValue(admin_complaintcard.class);
 
-                    if(userid.equals(c.getUid())) {
+                    if(userid.equals(c.getUid()) && value.equals("All Complaints")) {
                         listofcards.add(c);
                         //Toast.makeText(this.getContext(), "Complaint Found", Toast.LENGTH_SHORT).show();
                     }
 
-                    //listofcards.add(c);
+                    else if(userid.equals(c.getUid()) && value.equals("Acknowledged") && c.isAck()) {
+
+                        listofcards.add(c);
+                        //Toast.makeText(this.getContext(), "Complaint Found", Toast.LENGTH_SHORT).show();
+                    }
+
+                    else if(userid.equals(c.getUid()) && value.equals("UnAcknowledged") && !c.isAck()) {
+
+                        listofcards.add(c);
+                        //Toast.makeText(this.getContext(), "Complaint Found", Toast.LENGTH_SHORT).show();
+                    }
+
+                        //listofcards.add(c);
                 }
                 display();
             }

@@ -1138,6 +1138,8 @@ id snackbar_text
 id snap
 id spacer
 id spinner
+id spinner12
+id spinner2
 id split_action_bar
 id spread
 id spread_inside

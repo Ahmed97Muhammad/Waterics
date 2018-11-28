@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/bilalesque/Desktop/Waterics/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-or/values-or.xml",
+            "outputFile": "C:\\Users\\Bilal Salman\\Desktop\\Waterics\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-or\\values-or.xml",
             "map": [
                 {
-                    "source": "/home/bilalesque/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.0.1.aar/c576d975ea97f9526af22d7f3ff01922/res/values-or/values.xml",
+                    "source": "C:\\Users\\Bilal Salman\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.0.1.aar\\056445e9d100374be06d83327fbed9cb\\res\\values-or\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "/home/bilalesque/.gradle/caches/transforms-1/files-1.1/play-services-base-16.0.1.aar/f146d1a13cde518d56ca15900b7400de/res/values-or/values.xml",
+                    "source": "C:\\Users\\Bilal Salman\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e9174e4186ad157e5efec2570186a896\\res\\values-or\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",

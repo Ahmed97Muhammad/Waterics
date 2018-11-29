@@ -74,14 +74,17 @@
                 android:layout_marginBottom="0dp"
                 android:padding="8dp">
 
-                <TextView
+                <EditText
                     android:id="@+id/eta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/msg"
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="5dp"
-                    android:text="Completion Estimate" />
+                    android:hint="Days to Completion"
+                    android:inputType="number"
+                    android:text="Completion Estimate"
+                    android:textAppearance="@android:style/TextAppearance.Material.Small" />
 
                 <TextView
                     android:id="@+id/msg"

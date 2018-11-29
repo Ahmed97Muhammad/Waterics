@@ -123,7 +123,7 @@
                 android:layout_marginEnd="217dp"
                 android:layout_marginRight="217dp"
                 android:background="@drawable/buttonbg"
-                android:text="CANCEL"
+                android:text="CLEAR"
                 android:textAlignment="center"
                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                 android:textSize="22sp"

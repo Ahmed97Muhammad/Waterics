@@ -1,4 +1,4 @@
-#Tue Nov 27 23:03:25 PKT 2018
+#Fri Nov 30 02:34:18 PKT 2018
 base.0=/home/bilalesque/Desktop/Waterics/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex

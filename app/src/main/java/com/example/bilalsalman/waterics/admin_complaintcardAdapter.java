@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
@@ -47,15 +48,68 @@ public class admin_complaintcardAdapter extends RecyclerView.Adapter<admin_compl
         holder.msg.setText(complaint.msg);
         holder.eta.setText(complaint.eta);
 
-        if(complaint.isAck())
+        if(complaint.isAck()) {
             holder.ackstatus.setText("ACKNOWLEDGED");
+            holder.eta.setEnabled(false);
+        }
         else
             holder.ackstatus.setText("NOT ACKNOWLEDGED");
+
+        /*holder.eta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!(complaint.isAck())){
+                    holder.eta.setText("");
+                    holder.eta.getText().clear();
+                }
+            }
+        });*/
+
+        holder.eta.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(b)
+                {
+                    holder.eta.setText("");
+                }
+            }
+        });
 
 
         holder.acknowledge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(complaint.isAck()) {
+                    holder.eta.setEnabled(false);
+                    holder.acknowledge.toggle();
+                    return;
+                }
+
+                String etastr = holder.eta.getText().toString().trim();
+
+                if(etastr.equals("") || etastr.equals("Eta not defined")) {
+                    holder.eta.setText("");
+                    holder.eta.setError("Enter estimated days to completion");
+                    holder.eta.requestFocus();
+                    holder.acknowledge.toggle();
+
+                    return;
+                }
+
+                /*if want to hardcode
+                if(complaint.type.equals("Pipe Burst")) {
+
+                }
+                if(complaint.type.equals("Leakage")) {
+
+                }
+                if(complaint.type.equals("Acidity in Water")) {
+
+                }
+                if(complaint.type.equals("Water Shortage")) {
+
+                }*/
+                etastr=etastr.concat(" days");
                 complaint.acknowledge();
                 holder.acknowledge.setChecked(complaint.isAck());
                 if(complaint.isAck()){
@@ -63,6 +117,9 @@ public class admin_complaintcardAdapter extends RecyclerView.Adapter<admin_compl
 
                     DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Complaints").child(complaint.complaintID);
                     ref.child("ack").setValue(true);
+                    ref.child("eta").setValue(etastr);
+
+                    holder.eta.setEnabled(false);
 
                 }
                 else{
@@ -107,7 +164,8 @@ public class admin_complaintcardAdapter extends RecyclerView.Adapter<admin_compl
 
     public class admin_complaintcardViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView complaintID,cdate,add,ackstatus,ctype,msg,eta;
+        public TextView complaintID,cdate,add,ackstatus,ctype,msg;
+        public EditText eta;
         public Switch acknowledge;
         ImageButton down;
 

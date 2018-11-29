@@ -53,7 +53,7 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.recycl
         admin_complaintcard obj = listofcards.get(position);
 
         holder.viewId.setText(obj.getComplaintID());
-        holder.viewsupervisor.setText("Fix it yourself");
+        //holder.viewsupervisor.setText("Fix it yourself");
         holder.viewdt.setText(obj.getDate());
         holder.viewres.setText(obj.getEta());
         String complaintType = obj.getType();
@@ -77,18 +77,34 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.recycl
         if(obj.isAck())
         {
             holder.viewack.setText("Acknowledged");
+
+            if(obj.type.equals("Pipe Burst")) {
+                holder.viewsupervisor.setText("Tahir Mehmood");
+            }
+            if(obj.type.equals("Leakage")) {
+                holder.viewsupervisor.setText("Kamran Nisar");
+            }
+            if(obj.type.equals("Acidity in Water")) {
+                holder.viewsupervisor.setText("Nadeem Kafi");
+            }
+            if(obj.type.equals("Water Shortage")) {
+                holder.viewsupervisor.setText("Abdul Saeed");
+            }
         }
         else
         {
             holder.viewack.setText("Not Acknowledged");
+            holder.viewsupervisor.setText("No supervisor assigned!");
         }
+
+
 
 
         //Resources resources = lists.getResources();
         //final int resourceId = resources.getIdentifier("waterdrop", "drawable", lists.getPackageName());
         //final int resourceId = resources.getIdentifier(obj.getImage(), "drawable", lists.getPackageName());
 
-       // holder.imageview.setImageDrawable(resources.getDrawable(resourceId));
+        // holder.imageview.setImageDrawable(resources.getDrawable(resourceId));
 
     }
 

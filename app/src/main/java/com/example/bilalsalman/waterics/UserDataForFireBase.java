@@ -16,6 +16,17 @@ public class UserDataForFireBase {
 
     }
 
+    @Override
+    public String toString() {
+        return "UserDataForFireBase{" +
+                "address='" + address + '\'' +
+                ", num='" + num + '\'' +
+                ", bill='" + bill + '\'' +
+                ", fname='" + fname + '\'' +
+                ", id='" + id + '\'' +
+                '}';
+    }
+
     public String getAddress() {
         return address;
     }

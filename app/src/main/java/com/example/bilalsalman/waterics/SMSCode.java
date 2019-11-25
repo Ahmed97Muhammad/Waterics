@@ -62,7 +62,7 @@ public class SMSCode extends AppCompatActivity {
 
         num = intent.getStringExtra("num");
         String c_code = intent.getStringExtra("c_code");
-        //Toast.makeText(getApplicationContext(), address + num + bill + fname, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), address + num + bill + fname, Toast.LENGTH_SHORT).show();
 
         num = c_code + num;
 
@@ -146,6 +146,7 @@ public class SMSCode extends AppCompatActivity {
                             //Toast.makeText(getApplicationContext(), id, Toast.LENGTH_SHORT).show();
                             //Log.d("hammad",id);
                             UserDataForFireBase obj = new UserDataForFireBase(address,num,bill,fname,id);
+                            Log.i("Testing12",obj.toString());
                             userdata.child("Users").child(id).setValue(obj);
 
                             Toast.makeText(getApplicationContext(), "Registration Successful!", Toast.LENGTH_SHORT).show();

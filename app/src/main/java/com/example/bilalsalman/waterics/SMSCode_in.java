@@ -136,7 +136,7 @@ public class SMSCode_in extends AppCompatActivity {
 
 
                                 //push to firebase
-                            if(admin.equals("03322469156"))
+                            if(admin.equals("03323161359"))
                             {
                                 //Log in admin
 

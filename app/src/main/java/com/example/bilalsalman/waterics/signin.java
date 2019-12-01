@@ -170,10 +170,10 @@ public class signin extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        Log.i("ahmed",mAuth.getCurrentUser().getPhoneNumber());
+//        Log.i("ahmed",mAuth.getCurrentUser().getPhoneNumber());
 
         if (mAuth.getCurrentUser() != null) {
-            if(mAuth.getCurrentUser().getPhoneNumber().equals("+923454058863"))
+            if(mAuth.getCurrentUser().getPhoneNumber().trim().equals("+923323161359"))
                 startActivity(new Intent(this, admin_tabbed.class));
             else
                 startActivity(new Intent(this, tabbed_activity.class));
